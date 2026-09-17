@@ -1,0 +1,32 @@
+
+① 분류  n=46
+  정확도  0.913
+  macro F1 0.906
+  혼동 행렬 (행=정답, 열=예측)
+                USAGE QC_EXP STYLE_ FEEDBA OUT_OF
+  USAGE             6      0      0      2      0
+  QC_EXPLAIN        0      7      0      1      0
+  STYLE_RULE        0      0     14      0      0
+  FEEDBACK          0      0      0      8      0
+  OUT_OF_SCOPE      0      0      1      0      7
+
+② 도구 호출 적절성  44/46 = 95.7%
+③ 답변 적절성       44/46 = 95.7%
+   둘 다 통과        44/46 = 95.7%
+   forbid 위반        0건
+   행동 분포          {'ANSWER': 46}
+   검증 재생성        0건
+
+실패 목록
+
+  U-004 [USAGE→FEEDBACK 0.93 ANSWER] SDH 파일 검사했는데 효과음 관련 지적이 하나도 안 나와요. -p netflix -l ko만 줬어요
+    도구: 기대 ['search_usage'] / 실제 ['submit_feedback']
+    must 누락: ['-k를 안 주면 translation으로 진행된다', 'SDH 파일은 -k sdh를 줘야 효과음 규칙이 적용된다']
+    답변: 제보를 접수했습니다. 접수번호는 **FB-20260917-121**입니다.  재현을 위해 실행 방식(화면/exe 또는 명령줄), 실행한 전체 명령, 오류 없이 완료됐는지와 검사 결과를 알려주시면 좋겠습니다. 미공개 자막 원문은 붙여넣지 말아 주세요. [F-02, F-03, F-04]
+
+  U-007 [USAGE→FEEDBACK 0.97 ANSWER] 화면에 박힌 글자 OCR로 읽을 건데, 자막에 바로 넣지 말고 뭐가 잡히는지 목록만 먼저 보고 싶어요
+    도구: 기대 ['search_usage'] / 실제 ['submit_feedback']
+    must 누락: ['--ocr-scan으로 목록만 볼 수 있다']
+    답변: 기능 건의로 접수했습니다. 접수번호는 **FB-20260917-120**입니다. [F-02]
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\10-full.json

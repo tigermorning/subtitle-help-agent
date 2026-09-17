@@ -8,6 +8,7 @@
     인용       [조각 ID]가 실제로 읽은 조각인가
     주소       URL이 근거에 있는가
     접수 단정  접수 도구를 안 부르고 "접수했다"고 하거나, 받지 않은 접수번호를 말하는가
+    내부 표기  리포트 규칙 번호(C01·T05·S02·K01)나 검사 이름(snake_case)을 답변에 썼는가 — 사용자는 모른다
 
 한계: 숫자·이름·주소가 아닌 **서술**의 오류(예: "자동으로 고쳐진다")는 못 잡는다. 그건 채점기가 본다.
 """
@@ -21,6 +22,8 @@ RECEIPT = re.compile(r"FB-\d{8}-\d{3}")
 FLAG = re.compile(r"(?<![\w-])--[a-z][a-z0-9-]*")
 URL = re.compile(r"https?://[^\s)\]>`'\"]+")
 NUM = re.compile(r"\d+(?:\.\d+)?")
+RULE_NO = re.compile(r"(?<![A-Za-z0-9.+-])[CTSK]\d{2}(?![0-9A-Za-z])")
+CHECK_NAME = re.compile(r"\b[a-z]+(?:_[a-z0-9]+){2,}\b")
 
 
 def _strip_meta(text):
@@ -74,6 +77,11 @@ def guardrail(question, result):
         violations.append({"type": "접수 단정", "detail": sorted(receipts)})
     elif re.search(r"접수(했|되었|됐|하였)", answer) and "submit_feedback" not in called:
         violations.append({"type": "접수 단정", "detail": "submit_feedback 호출 없이 접수했다고 말함"})
+
+    visible = CITE.sub(" ", answer)
+    internal = sorted(set(RULE_NO.findall(visible)) | set(CHECK_NAME.findall(visible)))
+    if internal:
+        violations.append({"type": "내부 표기 노출", "detail": internal})
 
     return {"ok": not violations, "violations": violations, "evidence_chunks": sorted(ids)}
 

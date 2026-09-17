@@ -86,27 +86,33 @@ def search_style_rule(query: str) -> dict:
     return {"query": query, "chunks": _rank_merge(hits, query)}
 
 
-def get_check_info(rule: str) -> dict:
-    """검사 리포트의 규칙 번호(예: S02, T05, C01)나 검사 이름(예: reading_speed_exceeded)으로 검사 항목 설명을 가져온다.
+REPORT_LINE = re.compile(r"^- 리포트 표시[^:]*:(.*)$", re.M)
+
+
+def _report_keys(chunk):
+    """검사 항목 조각의 '리포트 표시' 줄에서 규칙 번호·검사 이름을 뽑는다."""
+    m = REPORT_LINE.search(chunk["text"])
+    return set(re.findall(r"`([^`]+)`", m.group(1))) if m else set()
+
+
+def get_check_info(item: str) -> dict:
+    """검사 리포트에 뜬 **검사 항목의 내용**(예: "SDH 읽기 속도 초과", "줄 끝 마침표·쉼표", "괄호가 안 닫혔다")으로
+    검사 항목 설명을 가져온다. 사용자가 리포트의 표시를 그대로 붙여 넣었으면 그 표시로도 찾는다.
     항목이 인용한 규정 조항과 리포트 읽는 법(Q-00)도 함께 돌려준다."""
-    key = rule.strip().strip("[]`").upper()
-    m = re.fullmatch(r"(?:Q-)?([CTS]\d{2})", key)
-    hits = []
-    if m and f"Q-{m.group(1)}" in CHUNKS:
-        hits = [f"Q-{m.group(1)}"]
-    elif not m:
-        name = rule.strip().strip("`").lower()
-        hits = [c["id"] for c in chunks_in("20_qc_checks.md")
-                if c["id"] != "Q-00" and f"`{name}`" in c["title"]]
+    key = item.strip().strip("[]`")
+    qc = [c for c in chunks_in("20_qc_checks.md") if c["id"] != "Q-00"]
+    hits = [c["id"] for c in qc if key.upper() in {k.upper() for k in _report_keys(c)}]
     if not hits:
-        return {"rule": rule, "found": False,
+        hits = [c["id"] for c in _search("20_qc_checks.md", key, k=2) if c["id"] != "Q-00"][:1]
+    if not hits:
+        return {"item": item, "found": False,
                 "note": "이 창구의 검사 항목 설명에 없는 번호다. 넷플릭스 외 발주처나 비공개 실무 자료 항목일 수 있다(Q-00).",
                 "chunks": [_pack("Q-00")]}
     ids = ["Q-00"] + hits
     for cid in hits:
         basis = next((l for l in CHUNKS[cid]["text"].splitlines() if l.startswith("- 근거:")), "")
         ids += [r for r in REF_ID.findall(basis) if r in CHUNKS and r not in ids]
-    return {"rule": rule, "found": True, "chunks": [_pack(cid) for cid in ids]}
+    return {"item": item, "found": True, "chunks": [_pack(cid) for cid in ids]}
 
 
 def submit_feedback(kind: Literal["feature", "bug", "false_positive", "doc"], summary: str) -> dict:

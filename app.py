@@ -23,7 +23,7 @@ ROUTES = ["USAGE", "QC_EXPLAIN", "STYLE_RULE", "FEEDBACK", "OUT_OF_SCOPE"]
 ROUTE_ICON = {"USAGE": "🛠️", "QC_EXPLAIN": "🔎", "STYLE_RULE": "📏", "FEEDBACK": "📮", "OUT_OF_SCOPE": "🧭"}
 ROUTE_DESC = {
     "USAGE": "생성기 실행 방법, 옵션, 리포트 읽는 법, 결과 파일",
-    "QC_EXPLAIN": "검사 리포트에 뜬 특정 항목(규칙 번호)의 뜻과 고치는 법",
+    "QC_EXPLAIN": "검사 리포트에 뜬 특정 경고(예: 읽기 속도 초과)의 뜻과 고치는 법",
     "STYLE_RULE": "넷플릭스 공개 자막 규정 — 글자 수, 읽기 속도, 문장부호, SDH 표기, 타이밍 등",
     "FEEDBACK": "기능 건의, 버그·오탐 제보. 접수번호를 드립니다",
     "OUT_OF_SCOPE": "이 창구가 답하지 않는 질문과 확인할 곳",

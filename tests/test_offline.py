@@ -118,6 +118,35 @@ hits = idx.search(first["q"])
 ok("같은 질문을 넣으면 그 Q&A가 1위", bool(hits) and hits[0][1]["id"] == first["id"])
 ok("무관한 문장은 비슷한 Q&A가 없다", idx.search("오늘 점심 메뉴 추천해 주세요") == [])
 
+print("②-2 규칙 번호를 사용자에게 보이지 않는다")
+import json as _json  # noqa: E402
+import re as _re  # noqa: E402
+import tools  # noqa: E402
+from config import DATA  # noqa: E402
+from guardrail import guardrail  # noqa: E402
+
+for q, want in [("SDH 읽기 속도 초과", "읽기 속도 초과 (SDH)"), ("괄호가 안 닫혔다", "닫히지 않은 괄호"),
+                ("줄 끝 마침표·쉼표", "줄 끝 마침표·쉼표")]:
+    r = tools.get_check_info(q)
+    ok(f"검사 항목을 내용으로 찾는다: {q}", r["found"] and any(c["title"] == want for c in r["chunks"]))
+r = tools.get_check_info("S02")
+ok("리포트 표시를 붙여 넣어도 찾는다", r["found"] and any(c["title"] == "읽기 속도 초과 (SDH)" for c in r["chunks"]))
+g = guardrail("", {"answer": "S02 reading_speed_exceeded 입니다. [Q-24]", "calls": [], "chunks": {},
+                   "prompt_chunks": ["Q-24"]})
+ok("답변 속 규칙 번호·검사 이름은 검증기가 잡는다",
+   any(v["type"] == "내부 표기 노출" and set(v["detail"]) == {"S02", "reading_speed_exceeded"} for v in g["violations"]))
+g = guardrail("", {"answer": "SDH 읽기 속도 초과는 확인 항목입니다. [Q-24]", "calls": [], "chunks": {},
+                   "prompt_chunks": ["Q-24"]})
+ok("조각 ID 인용만 있으면 내부 표기로 보지 않는다", not any(v["type"] == "내부 표기 노출" for v in g["violations"]))
+RULE_NO = _re.compile(r"(?<![A-Za-z0-9.+-])[CTSK]\d{2}(?![0-9A-Za-z])")
+leaks = [i["id"] for i in items if RULE_NO.search(i["q"] + i["a"])]
+ok("준비된 Q&A 질문·답에 규칙 번호가 없다", not leaks)
+gold = _json.loads((DATA / "goldenset.json").read_text(encoding="utf-8"))["items"]
+leaks = [i.get("id") for i in gold if RULE_NO.search(_json.dumps(i, ensure_ascii=False))]
+ok("평가셋(goldenset) 질문·모범 답에 규칙 번호가 없다", not leaks)
+for name in ["inquiries.csv", "hard_cases.csv", "answer_goldenset_multiturn.json"]:
+    ok(f"{name} 에 규칙 번호가 없다", not RULE_NO.search((DATA / name).read_text(encoding="utf-8-sig")))
+
 print("③ 데모 화면 (가짜 help_desk)")
 from streamlit.testing.v1 import AppTest  # noqa: E402
 

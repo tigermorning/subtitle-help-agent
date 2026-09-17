@@ -5,6 +5,7 @@
     python evaluate.py --only router      # 분류만 — routing_answers.csv eval 분할(카테고리당 24건)
     python evaluate.py --hard             # 어려운 문항 — 되묻기/처리 판단과 분류 (hard_cases.csv)
     python evaluate.py --multiturn        # 여러 턴 대화 (answer_goldenset_multiturn.json)
+    python evaluate.py --category-check   # 질문자가 고른 카테고리 검증 — 분류 120건에 맞는 선택·틀린 선택을 흉내 낸다
     python evaluate.py --validate         # 모범 답안으로 채점기 자체를 검증한다(1턴 + 여러 턴)
     python evaluate.py --label 01-이름     # runs/01-이름.json 으로 결과를 남긴다
 
@@ -259,6 +260,43 @@ def run_multiturn():
                                       "tool_pass": sum(r["tool_pass"] for r in rows)}}
 
 
+def run_category_check():
+    """질문자가 고른 카테고리를 제대로 검증하는가.
+
+    같은 질문마다 두 번 흉내 낸다 — 맞게 고른 경우, 틀리게 고른 경우(정답 아닌 카테고리 중 하나, 씨앗 고정).
+    분류는 선택과 무관하므로 질문마다 분류기를 한 번만 부른다.
+        맞게 고름   → match 가 정답. mismatch 는 멀쩡한 선택을 뒤집은 것
+        틀리게 고름 → mismatch 이면서 분류기 판단 == 정답 이 정답. match 는 틀린 선택을 그대로 받아들인 것
+    """
+    import random
+    from agent import check_category
+    from router import route
+    items = load_routing("eval")
+    outs = pmap(lambda i: route(i["question"]), items, WORKERS)
+    rng = random.Random(20260917)
+    right = Counter()
+    wrong = Counter()
+    fails = []
+    for i, o in zip(items, outs):
+        a = check_category(i["route"], o)
+        right[a["status"]] += 1
+        other = rng.choice([r for r in ROUTES if r != i["route"]])
+        b = check_category(other, o)
+        corrected = b["status"] == "mismatch" and o["route"] == i["route"]
+        wrong["바로잡음" if corrected else b["status"] if b["status"] != "mismatch" else "다른 카테고리로 바꿈"] += 1
+        if a["status"] != "match" or not corrected:
+            fails.append((i, o, other, a["status"], b["status"]))
+    n = len(items)
+    print(f"카테고리 검증 n={n}")
+    print(f"  맞게 고른 경우   match {right['match']}/{n} · mismatch(멀쩡한 선택 뒤집음) {right['mismatch']} · unclear(되물음) {right['unclear']}")
+    print(f"  틀리게 고른 경우 바로잡음 {wrong['바로잡음']}/{n} · 그대로 받아들임 {wrong['match']} · "
+          f"다른 카테고리로 바꿈 {wrong['다른 카테고리로 바꿈']} · 되물음 {wrong['unclear']}")
+    print("\n실패")
+    for i, o, other, sa, sb in fails:
+        print(f"  {i['id']} 정답 {i['route']} / 판단 {o['route']} ({o['confidence']:.2f}) · 맞게→{sa} · {other}로 틀리게→{sb} · {i['question'][:50]}")
+    return {"n": n, "right": dict(right), "wrong": dict(wrong)}
+
+
 def run_validate(items):
     """모범 답안을 채점기에 넣는다. 전부 통과해야 채점기를 믿을 수 있다."""
     rows = pmap(lambda i: {"id": i["id"], **judge(i["question"], i["gold_answer"], i["must"], i["forbid"])},
@@ -297,6 +335,7 @@ def main():
     ap.add_argument("--validate", action="store_true")
     ap.add_argument("--hard", action="store_true")
     ap.add_argument("--multiturn", action="store_true")
+    ap.add_argument("--category-check", action="store_true")
     ap.add_argument("--split", default="eval", choices=["eval", "fewshot", "all"])
     ap.add_argument("--label")
     args = ap.parse_args()
@@ -308,6 +347,8 @@ def main():
         out = run_hard()
     elif args.multiturn:
         out = run_multiturn()
+    elif args.category_check:
+        out = run_category_check()
     elif args.only == "router":
         out = run_router(load_routing(args.split))
     else:

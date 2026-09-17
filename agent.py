@@ -87,14 +87,51 @@ def build_agent():
 agent_app = build_agent()
 
 
-def help_desk(question, history=None):
+ROUTE_NAMES = {"USAGE": "사용법", "QC_EXPLAIN": "검사 결과 설명", "STYLE_RULE": "자막 규정",
+               "FEEDBACK": "건의·버그 접수", "OUT_OF_SCOPE": "범위 밖·넘기기"}
+
+
+def check_category(selected, out):
+    """질문자가 고른 카테고리를 분류기 판단과 대조한다. 고른 값은 분류기에 넘기지 않는다 —
+    넘기면 분류기가 따라가 버려 검증이 되지 않는다.
+
+    match     같다
+    mismatch  다르고 분류기 확신도가 기준 이상 → 알리고 분류기 판단대로 답한다(사용자 결정 2026-09-17)
+    unclear   분류기 확신도가 기준 미만 → 어느 쪽인지 되묻는다
+    """
+    if not selected:
+        return None
+    detected = out["route"]
+    if out["action"] == "CLARIFY":
+        status = "unclear"
+        message = (f"고르신 카테고리 '{ROUTE_NAMES.get(selected, selected)}'가 맞는지 질문만으로는 확인하기 어렵습니다. "
+                   f"{out['message']}")
+    elif detected == selected:
+        status, message = "match", ""
+    else:
+        status = "mismatch"
+        message = (f"고르신 카테고리는 '{ROUTE_NAMES.get(selected, selected)}'이지만, 질문 내용은 "
+                   f"'{ROUTE_NAMES.get(detected, detected)}'에 해당해 그 기준으로 답합니다.")
+    return {"selected": selected, "detected": detected, "confidence": out["confidence"],
+            "status": status, "message": message}
+
+
+def help_desk(question, history=None, selected_category=None):
     """문의 한 줄을 파이프라인에 통과시킨다. 되묻기면 answer 자리에 되묻는 문구를 넣는다.
 
-    history: 앞 턴들 [{"role": "user"|"assistant", "text": ...}]. 대화 상태는 부르는 쪽이 들고 있다
+    history:           앞 턴들 [{"role": "user"|"assistant", "text": ...}]. 대화 상태는 부르는 쪽이 들고 있다
+    selected_category: 질문자가 고른 카테고리. 분류에는 쓰지 않고 분류 결과와 대조만 한다
     """
     out = agent_app.invoke({"question": question, "history": history or []})
     if out["action"] == "CLARIFY":
         out.update(answer=out["message"], calls=[], chunks={}, prompt_chunks=[])
+    cc = check_category(selected_category, out)
+    if cc:
+        out["category_check"] = cc
+        if cc["status"] == "unclear":
+            out["answer"] = cc["message"]
+        elif cc["status"] == "mismatch":
+            out["answer"] = f"{cc['message']}\n\n{out['answer']}"
     return {"question": question, **out}
 
 

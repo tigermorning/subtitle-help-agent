@@ -1,0 +1,12 @@
+카테고리 검증 n=120
+  맞게 고른 경우   match 115/120 · mismatch(멀쩡한 선택 뒤집음) 5 · unclear(되물음) 0
+  틀리게 고른 경우 바로잡음 115/120 · 그대로 받아들임 1 · 다른 카테고리로 바꿈 4 · 되물음 0
+
+실패
+  400002 정답 USAGE / 판단 FEEDBACK (0.94) · 맞게→mismatch · FEEDBACK로 틀리게→match · 3차에서 글자 수 다시 맞추느라 시간이 두 배로 드는데, 왜 1차 번역 때 글자 수를 안 
+  400018 정답 USAGE / 판단 FEEDBACK (0.96) · 맞게→mismatch · QC_EXPLAIN로 틀리게→mismatch · --sfx로 효과음 얹었더니 하나도 빠짐없이 전부 확인 필요로 떠요. 확실한 것까지 다 확
+  400041 정답 QC_EXPLAIN / 판단 FEEDBACK (0.93) · 맞게→mismatch · OUT_OF_SCOPE로 틀리게→mismatch · 대사에 '5마일'이라고 번역했는데 non_metric_unit이 안 잡혔어요. 킬로미터로 
+  400059 정답 QC_EXPLAIN / 판단 FEEDBACK (0.90) · 맞게→mismatch · OUT_OF_SCOPE로 틀리게→mismatch · T01 글자 수 초과 수백 개인데 줄만 나누면 되는 걸 왜 --fix가 안 해 줘요? 이걸
+  400105 정답 FEEDBACK / 판단 USAGE (0.97) · 맞게→mismatch · STYLE_RULE로 틀리게→mismatch · exe를 '내 작업 폴더' 안에 두면 실행하자마자 꺼져요. 경로에 한글이나 공백 있으면 안
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\11-category-check-2nd.json

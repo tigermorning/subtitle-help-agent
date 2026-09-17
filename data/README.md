@@ -13,6 +13,7 @@
 | `routing_answers.csv` | 150 (eval 120 · fewshot 30) | `python evaluate.py --only router` | `routing_answers.csv` |
 | `hard_cases.csv` | 72 (6유형) | `python evaluate.py --hard` — 되묻기/처리 판단 | `hard_cases.csv` |
 | `answer_goldenset_multiturn.json` | 대화 12 (턴 24) | `python evaluate.py --multiturn` | `answer_goldenset_multiturn.json` |
+| `faq.json` | 79 (사용법 18 · 검사 결과 17 · 규정 26 · 건의 7 · 범위 밖 11) | 데모 사이드바 카테고리별 준비된 Q&A. 답은 고정 문장, `sources` 조각 인용. 검증: `python faq.py` | — |
 | `draft/` | — | 저작 초안·라벨 검증 중간 파일. 저장소 제외 | — |
 | `feedback/` | — | 평가 중 `submit_feedback`이 남긴 접수 기록. 저장소 제외 | — |
 
@@ -41,3 +42,16 @@
   - 반영 뒤 유형·행동 분포: 경계모호 13(ANSWER 11·CLARIFY 2), 극단단답 12(ANSWER 5·CLARIFY 7), 다중의도 12(ANSWER), 분류체계밖 11(ANSWER), 텍스트손상 12(ANSWER), 문맥의존 12(ANSWER 2·CLARIFY 10)
 - **채점기 검증 (goldenset 57건 + 여러 턴 24턴)**: 모범 답안 전부 통과, 빈 답변 전부 탈락 (`python evaluate.py --validate`)
 - **여러 턴 도구 집합**: 한 턴을 두 도구 중 어느 쪽으로 답해도 같은 조항에 닿는 경우만 `tools_union_alt`로 대체 집합을 둔다(M-02)
+
+## 준비된 Q&A (`faq.json`, 2026-09-17)
+
+- 근거: 공개 가능한 `docs/` 조각만(사용자 결정). 비공개 규정·작업자 자료는 쓰지 않았다
+- 만든 과정: 76건은 다른 Claude 세션이 작성·검증(`faq.py`), 건의·범위 밖이 적어(5·9건) 이 세션 초안에서 20건을 더했다(이미 있는 질문과 비슷한 4건은 뺐다)
+- 기계 검증 `python faq.py`: 답 속 수치·옵션·주소·조각 인용이 `sources`에 있는가, 첫 근거가 그 카테고리 문서인가 — 96/96 통과
+  - 질문 문장은 근거로 치지 않는다. 건의 답에 "접수했다"류 표현을 쓰면 검증기의 접수 단정 검사에 걸린다
+- 서술(뜻)은 기계 검증 밖 — 검토 에이전트로 96건을 문서와 대조: 높음 0 · 중간 6 · 낮음 10
+  - **중복 16건 삭제** — 이 세션이 보탠 건의·범위 밖 20건 대부분이 기존 질문과 뜻이 같았다. 앞서 유사도(글자 2-gram 0.5)로 걸렀지만 표현이 달라 못 걸렀다
+  - Q02 삭제(O07과 같은 내용, 카테고리도 범위 밖이 맞다)
+  - 서술 11건 고침: 빠진 조건(브랜드 콘텐츠·승인 제목, 같은 인물임이 분명할 때, 말더듬 예외, 번역/SDH 구분), 두 문서가 부딪히는 번역자 크레디트는 최근 문서(NR-MKT-3) 기준 명시, 23자 대신 16자 작업 기준, C10 처리는 `--collision` 값에 따름, 버튼 이름, 그룹 2건
+  - T05·T06 "`--fix`로 고친다"는 생성기 `checker/fixes.py`에 수정 함수가 있어 유지
+  - 결과 79건(사용법 18 · 검사 결과 17 · 규정 26 · 건의 7 · 범위 밖 11), `python faq.py` 79/79 통과

@@ -1,0 +1,1001 @@
+{
+ "routes": [
+  {
+   "id": "400001",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "파이썬이 설치되지 않은 PC에서 프로그램을 실행할 수 있는지 묻는 설치·실행 사용법 문의입니다."
+  },
+  {
+   "id": "400002",
+   "gold": "USAGE",
+   "pred": "FEEDBACK",
+   "confidence": 0.93,
+   "action": "HANDLE",
+   "reason": "1차 번역 단계에서 글자 수를 맞추지 않는 생성기 동작에 대한 불만·설계 변경 요구로 볼 수 있어 FEEDBACK입니다."
+  },
+  {
+   "id": "400003",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "역번역 검증을 작업 과정에서 언제 실행하는지 묻는 생성기 사용 절차 질문이다."
+  },
+  {
+   "id": "400004",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "앱 설치 후 검사 결과를 한 번에 확인하는 메뉴의 사용 방법을 묻는 문의입니다."
+  },
+  {
+   "id": "400006",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "검사 시 -p 옵션을 지정하지 않았을 때 기본으로 적용되는 발주처 기준을 묻는 사용법·동작 질문이다."
+  },
+  {
+   "id": "400007",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "현재 사용 가능한 발주처 기준 목록을 확인하는 생성기 내 위치나 방법을 묻는 사용법 문의입니다."
+  },
+  {
+   "id": "400008",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "배치 처리에서 검사 결과를 종료 코드로 구분해 위반 파일만 걸러내는 방법을 묻는 사용법 문의입니다."
+  },
+  {
+   "id": "400011",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "저장 결과 파일의 이름을 지정하는 방법을 묻는 생성기 사용법 문의입니다."
+  },
+  {
+   "id": "400012",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "자막 QA 후 지적 사항을 수정한 다음 검사를 다시 실행하는 작업 절차를 묻고 있으므로 사용법 문의입니다."
+  },
+  {
+   "id": "400013",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "영상에서 인점·아웃점 제안을 받기 위해 어떤 옵션을 조합해 실행하는지 묻는 생성기 사용법 질문이다."
+  },
+  {
+   "id": "400014",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "타임코드 수렴 기능의 처리 우선순위와 인점 이동 방식 등 생성기 동작을 묻는 사용법 문의입니다."
+  },
+  {
+   "id": "400015",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "영상 파일 하나로 한국어 SDH 초안을 생성하는 명령어 사용 방법을 묻는 문의입니다."
+  },
+  {
+   "id": "400016",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "PDF 형식의 원어 대본을 생성기에서 열 수 있는지와 외부 서버 업로드 여부를 묻는 사용법·실행 방식 문의입니다."
+  },
+  {
+   "id": "400017",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.97,
+   "action": "HANDLE",
+   "reason": "대조 기능에서 소리를 찾지 못한 대본 줄이 결과에 어떻게 표시되거나 처리되는지 묻는 사용법·결과 확인 질문입니다."
+  },
+  {
+   "id": "400018",
+   "gold": "USAGE",
+   "pred": "FEEDBACK",
+   "confidence": 0.78,
+   "action": "HANDLE",
+   "reason": "화면 캡션의 색상 표시가 일괄적으로 갈색으로 나타나 모든 항목을 확인 대상으로 만드는 동작에 대한 불만·이상 동작 제보로 보입니다."
+  },
+  {
+   "id": "400019",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.96,
+   "action": "HANDLE",
+   "reason": "화면에 박힌 자막(번인 자막)으로 SRT 초안을 생성할 수 있는지와 처리 시간 등 생성기 사용 가능 여부를 묻고 있습니다."
+  },
+  {
+   "id": "400022",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "생성기에서 한국어 교정 기능을 어디서 실행하고 교정기를 어떻게 지정하는지 묻는 사용법 문의입니다."
+  },
+  {
+   "id": "400023",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "한국어 교정기를 찾지 못했다는 상태가 규정 검사 전체 실행에 어떤 영향을 주는지 묻는 생성기 동작·검사 결과 관련 사용법 질문입니다."
+  },
+  {
+   "id": "400024",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.96,
+   "action": "HANDLE",
+   "reason": "작업 중 생성되는 .work 폴더를 남기지 않도록 설정하거나 정리하는 방법을 묻는 사용법 문의입니다."
+  },
+  {
+   "id": "400026",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "[용어표]와 [캐릭터 문서] 기능의 결과를 KNP 시트에 넣는지 묻는 사용법 질문입니다."
+  },
+  {
+   "id": "400027",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "Subtitle Edit에서 첨삭 북마크를 모으는 생성기 기능의 사용 방법을 묻고 있다."
+  },
+  {
+   "id": "400028",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "쿠팡 규정 자체가 아니라 생성기에서 쿠팡 한국어 번역 파일을 자동 교정할 때 사용할 도구와 실행 방법을 묻고 있다."
+  },
+  {
+   "id": "400029",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "생성기에서 회사 기준에 맞는 새 발주처 검사 기준을 만들고 설정하는 방법을 묻는 사용법 문의입니다."
+  },
+  {
+   "id": "400030",
+   "gold": "USAGE",
+   "pred": "USAGE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "화면 글자와 자막 위치 검사를 실행하기 위해 어떤 값을 제공해야 하는지 묻는 사용법 문의입니다."
+  },
+  {
+   "id": "400032",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "리포트의 특정 검사 항목인 '통화 환산 검사'가 무엇을 확인하는지 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400033",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "리포트에 표시된 특정 경고 항목인 ‘글리프 목록 밖 글자’의 의미와 문제 대상 글자를 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400034",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "리포트에 표시된 특정 경고인 ‘화면 글자와 위치 충돌’의 의미와 수정 방법을 묻고 있습니다."
+  },
+  {
+   "id": "400036",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "검사 리포트에 표시된 특정 항목인 ‘점 세 개 말줄임표 경고’의 의미와 수정 방법을 묻고 있습니다."
+  },
+  {
+   "id": "400037",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "원문 자막의 이탤릭을 유지해 발생한 특정 ‘기울임꼴’ 검사 경고의 의미와 수정 기준을 묻고 있습니다."
+  },
+  {
+   "id": "400039",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "리포트의 특정 경고 항목인 ‘따옴표 역할 뒤바뀜’이 발생하는 조건과 의미를 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400040",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "리포트에 표시된 특정 경고인 ‘화면 글자 자막과 대사 합침’을 제시하고, 표지판 번역과 대사가 함께 들어간 경우의 수정 방법을 묻고 있습니다."
+  },
+  {
+   "id": "400041",
+   "gold": "QC_EXPLAIN",
+   "pred": "FEEDBACK",
+   "confidence": 0.95,
+   "action": "HANDLE",
+   "reason": "`non_metric_unit` 검사가 ‘5마일’을 탐지하지 않은 동작을 제보하고, 검사 결과가 정상인지 묻고 있습니다."
+  },
+  {
+   "id": "400043",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "리포트에 표시된 특정 검사 항목인 ‘반복 번역’이 어떤 규정을 검사하는지 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400044",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "리포트의 특정 검사 항목인 ‘노래 가사 표기 검사’를 언급하고, 해당 항목의 의미와 가사 줄에 적용되는 기준을 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400045",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "한국어 번역본에서 발생한 특정 검사 항목인 줄바꿈 위치 경고의 발생 원인을 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400046",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "‘존대·반말 어긋남 경고’라는 특정 검사 항목의 확인 방법과 필요한 입력을 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400047",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "리포트에 표시된 특정 경고인 ‘쓰지 않는 문장부호’의 의미와 대본 속 ‘민수:’ 표기가 해당 경고 대상인지 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400049",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "번역본과 SDH본에서 발생한 특정 검사 항목인 ‘읽기 속도 초과’의 기준 차이와 판정 이유를 묻고 있다."
+  },
+  {
+   "id": "400050",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "‘말더듬 표시 경고’라는 특정 검사 항목의 의미와 긴장으로 더듬는 대사를 어떻게 수정할지 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400051",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "‘음표 띄어쓰기 경고’라는 특정 검사 항목의 의미와 수정 방법(♪ 뒤에 공백을 넣는지)을 묻고 있습니다."
+  },
+  {
+   "id": "400052",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "리포트에 표시된 특정 항목인 ‘음표 짝 경고’의 의미와 해결 방법을 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400053",
+   "gold": "QC_EXPLAIN",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "삐 처리한 욕설의 별표 표기 개수라는 넷플릭스 자막 작성 규정 자체를 묻고 있으며, 특정 경고의 의미나 생성기 사용법이 아니라 스타일 규정 질문이다."
+  },
+  {
+   "id": "400054",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "리포트에 표시된 특정 검사 항목인 ‘2인 화자 문장 이어짐’의 검사 대상과 의미를 묻고 있습니다."
+  },
+  {
+   "id": "400055",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "리포트의 특정 경고 항목인 ‘화자 표시 일관성’이 뜬 이유와 화자명을 바꿔 써도 되는지 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400056",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "SDH 리포트에 표시된 특정 경고 항목인 ‘위가 무거운 줄바꿈’이 번역 자막 검사와 동일한 검사인지 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400057",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.97,
+   "action": "HANDLE",
+   "reason": "자막 사이 간격 검사 결과와 5프레임 공백의 허용 여부를 묻는 특정 QC 항목 관련 문의입니다."
+  },
+  {
+   "id": "400058",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "‘노출 시간이 너무 짧다’는 특정 검사 경고의 의미와, 뒤 자막과 붙어 있어 아웃점을 늘릴 수 없을 때의 수정 방법을 묻고 있다."
+  },
+  {
+   "id": "400059",
+   "gold": "QC_EXPLAIN",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.91,
+   "action": "HANDLE",
+   "reason": "특정 검사 항목인 ‘한 줄 글자 수 초과’를 언급하며 자동으로 처리되지 않는 이유와 수정 방법을 묻고 있습니다."
+  },
+  {
+   "id": "400061",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "번역 자막에서 영어 약어의 마침표 표기 방식이라는 자막 작성 규정에 관한 질문이다."
+  },
+  {
+   "id": "400062",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "자막이 두 개로 나뉠 때 말줄임표를 어떻게 표기하는지 묻는 넷플릭스 자막 작성 규정 질문이다."
+  },
+  {
+   "id": "400063",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "번역 자막에서 2인 화자 표시 시 하이픈 뒤 띄어쓰기 형식을 묻는 넷플릭스 자막 작성 규정 질문입니다."
+  },
+  {
+   "id": "400064",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "화면 문자 메시지 같은 화면 글자 자막(FN)과 동시에 나오는 대사를 한 자막에 함께 표시하는 작성·배치 규정을 묻고 있으므로 STYLE_RULE입니다."
+  },
+  {
+   "id": "400065",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "자막에서 놀람과 되물음이 함께 나타날 때 물음표와 느낌표를 함께 쓰는 문장부호 규정을 묻는 질문이므로 STYLE_RULE입니다."
+  },
+  {
+   "id": "400066",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "반복되는 대사를 자막에 어디까지 표기해야 하는지 묻는 자막 작성 규정 질문이며, 특정 검사 경고나 생성기 사용법에 관한 문의가 아니다."
+  },
+  {
+   "id": "400068",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "검사 결과가 아닌 넷플릭스 자막 번역에서 원문의 욕설 수위와 표현을 어떻게 유지해야 하는지에 대한 규정 질문입니다."
+  },
+  {
+   "id": "400069",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "보이스오버로 제시되는 인물의 속마음을 번역 자막에서 어떻게 표기할지는 자막 문장부호·화법에 관한 스타일 규정 질문이다."
+  },
+  {
+   "id": "400070",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.97,
+   "action": "HANDLE",
+   "reason": "SDH에서 읽기 속도를 맞추기 위해 의미가 같은 짧은 표현으로 바꿔도 되는지 묻는 자막 작성 규정·현지화 판단 질문입니다."
+  },
+  {
+   "id": "400072",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "SDH에서 효과음과 대사를 어떻게 표기하고 구분하는지 묻는 자막 작성 규정 질문이며, 특정 검사 경고를 제시한 것은 아닙니다."
+  },
+  {
+   "id": "400073",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "검사 경고가 아니라 SDH에서 한국어 대사 속 영어 표현을 어떻게 표기할지에 대한 자막 작성 규정을 묻고 있습니다."
+  },
+  {
+   "id": "400074",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "SDH에서 화자 표시와 속마음·언어 표기의 순서를 어떻게 쓰는지 묻는 자막 작성 규정 질문이다."
+  },
+  {
+   "id": "400075",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "SDH에서 효과음을 어떤 방식으로 표기해야 하는지 묻는 자막 작성 규정 질문입니다."
+  },
+  {
+   "id": "400076",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "가사가 없는 음악을 SDH 자막에서 어떤 방식으로 표기해야 하는지 묻는 자막 작성 규정 질문입니다."
+  },
+  {
+   "id": "400079",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.97,
+   "action": "HANDLE",
+   "reason": "특정 검사 경고가 아니라 다음 자막과의 간격 및 아웃점 설정에 관한 자막 타이밍 규정을 묻고 있습니다."
+  },
+  {
+   "id": "400080",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "검사 결과의 특정 경고가 아니라 넷플릭스 자막의 자막 사이 간격 규정 자체를 묻고 있으므로 STYLE_RULE입니다."
+  },
+  {
+   "id": "400081",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.96,
+   "action": "HANDLE",
+   "reason": "장면 전환과 대사 타이밍에 따른 인점 배치라는 자막 타이밍 규정·작성 방식에 대한 질문이며, 특정 검사 경고나 생성기 사용법을 묻는 내용은 아닙니다."
+  },
+  {
+   "id": "400082",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "화면 글자(FN 자막)의 인점·아웃점처럼 자막 타이밍을 어떻게 설정할지에 대한 넷플릭스 자막 규정 질문이다."
+  },
+  {
+   "id": "400083",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "검사 결과의 특정 경고가 아니라 넷플릭스 타이밍 가이드에 따른 '반 초'의 프레임 환산을 묻는 규정 질문이다."
+  },
+  {
+   "id": "400084",
+   "gold": "STYLE_RULE",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "읽기 속도 초과라는 특정 검사 경고의 의미와 아웃포인트를 얼마나 조정할 수 있는지 묻고 있으므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400086",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "영어 자막 템플릿에서 주석을 다는 기준이 규정상 선택 사항인지 의무인지 묻는 자막 작성 방식 질문입니다."
+  },
+  {
+   "id": "400087",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "예고편에서 화면 로고와 겹치지 않도록 자막 위치를 어떻게 정해야 하는지 묻는 넷플릭스 자막 규정·스타일 질문입니다."
+  },
+  {
+   "id": "400089",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "수화로 이루어지는 대화를 화면 글자 자막(FN)으로 처리해야 하는지 묻는 자막 작성 규정 질문이다."
+  },
+  {
+   "id": "400090",
+   "gold": "STYLE_RULE",
+   "pred": "STYLE_RULE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "넷플릭스 한국어 스타일 가이드의 개정 내용이 있는지 묻는 규정·문서 관련 문의입니다."
+  },
+  {
+   "id": "400091",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "ASS 자막 파일 지원 기능을 추가해 달라는 요청이므로 FEEDBACK입니다."
+  },
+  {
+   "id": "400092",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "넷플릭스 일본어 번역 자막 규정 프로파일을 새로 추가해 달라는 기능 요청이다."
+  },
+  {
+   "id": "400093",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "macOS에서 사용할 수 있도록 exe 기반 생성기의 macOS용 버전을 만들어 달라는 기능 요청이다."
+  },
+  {
+   "id": "400094",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "단계 실행 후 이전 상태로 되돌리는 버튼을 추가해 달라는 기능 요청이다."
+  },
+  {
+   "id": "400095",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "검사 리포트를 엑셀 파일로 내보내는 새로운 기능을 요청하고 있습니다."
+  },
+  {
+   "id": "400096",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "KNP 엑셀 시트를 불러와 자막의 용어 표기 차이를 표시하는 새로운 기능을 요청하고 있습니다."
+  },
+  {
+   "id": "400098",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "읽기 속도 초과 항목을 자막 표에서 빨간색으로 표시해 달라는 기능 개선 요청이다."
+  },
+  {
+   "id": "400099",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "번역 단계에서 사용할 Ollama 모델을 화면 앱에서 선택하는 기능을 새로 추가해 달라는 요청이다."
+  },
+  {
+   "id": "400100",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "SRT 외에 TTML(DFXP) 형식으로 바로 저장하는 기능의 존재 여부를 묻고, 없을 경우 추가를 요청하고 있습니다."
+  },
+  {
+   "id": "400101",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "특정 검사 항목을 제외하고 실행하는 기능의 존재 여부를 묻는 동시에, 없으면 추가해 달라는 기능 요청을 포함하고 있습니다."
+  },
+  {
+   "id": "400102",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "타임코드 수렴에서 프레임레이트를 직접 지정하는 기능의 존재 여부를 확인하면서, 없으면 기능을 추가해 달라는 건의까지 함께 제기했습니다."
+  },
+  {
+   "id": "400104",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "2차 감수본과 3차 윤문본을 줄 단위로 나란히 비교하는 기능의 존재 여부 확인과 신규 기능 요청이 함께 포함되어 있어 FEEDBACK입니다."
+  },
+  {
+   "id": "400105",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "한글·공백 경로에서 실행 직후 종료되는 오류 증상을 알리며 정상 동작 여부와 원인에 대한 문제를 제기하고 있습니다."
+  },
+  {
+   "id": "400107",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "도움말의 진단 기능을 실행할 때 응답 없음과 화면 멈춤이 발생했다는 오류·고장 제보입니다."
+  },
+  {
+   "id": "400108",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "중간 결과 work 폴더를 생성하지 않도록 하는 설정을 추가해 달라는 기능 요청이다."
+  },
+  {
+   "id": "400109",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "번역 감수 회차를 5로 설정했는데 2회 만에 멈추는 동작 이상을 알리고 설정 오류를 제보하고 있습니다."
+  },
+  {
+   "id": "400110",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.86,
+   "action": "HANDLE",
+   "reason": "화면 캡션 일부가 예상한 갈색 표시 없이 처리된다는 동작 이상 또는 누락을 제보하고 있습니다."
+  },
+  {
+   "id": "400113",
+   "gold": "FEEDBACK",
+   "pred": "QC_EXPLAIN",
+   "confidence": 0.95,
+   "action": "HANDLE",
+   "reason": "리포트에 표시된 특정 문장부호 위반(노래 가사 줄 끝의 물음표)에 대한 의미와 허용 여부를 묻는 문의이므로 QC_EXPLAIN입니다."
+  },
+  {
+   "id": "400114",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "24fps에서 자막 사이 6프레임 간격을 검사해야 한다고 보았으나 경고가 전혀 발생하지 않는다는 검사 누락·오탐 제보입니다."
+  },
+  {
+   "id": "400115",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "한 글자짜리 말줄임표가 글자 수에 잘못 계산되어 초과 판정된다는 검사 오탐·동작 이상 제보이다."
+  },
+  {
+   "id": "400117",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "문서에는 존재한다고 안내된 단추가 플러그인에 나타나지 않아 문서와 실제 동작이 다르다는 오류 제보이다."
+  },
+  {
+   "id": "400118",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "문서에 명시된 필수 설정 없이도 기능이 동작하는 문서·실제 동작 불일치 제보입니다."
+  },
+  {
+   "id": "400119",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "문서에는 일부 기능만 건너뛴다고 되어 있지만 실제로는 규정 검사까지 멈추는 문서와 다른 동작을 제보하고 있다."
+  },
+  {
+   "id": "400120",
+   "gold": "FEEDBACK",
+   "pred": "FEEDBACK",
+   "confidence": 0.98,
+   "action": "HANDLE",
+   "reason": "사용법 문서와 달리 -p 옵션을 빼도 경고 없이 넷플릭스로 검사되는 동작을 제보한 문의입니다."
+  },
+  {
+   "id": "400123",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "‘할 수밖에 없다’의 ‘밖에’ 띄어쓰기는 한국어 맞춤법·띄어쓰기 규범에 관한 질문으로, 생성기 근거 문서의 범위를 벗어납니다."
+  },
+  {
+   "id": "400124",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "‘리더십’과 ‘리더쉽’ 중 어느 표기가 외래어 표기법에 맞는지 묻는 한국어 외래어 표기 질문으로, 생성기나 넷플릭스 자막 규정으로 답할 수 없는 범위입니다."
+  },
+  {
+   "id": "400126",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "한국어 어미인 '-대'와 '-데'의 맞춤법·표기 구분을 묻는 질문으로, 생성기나 넷플릭스 자막 규정으로 답할 수 없는 내용입니다."
+  },
+  {
+   "id": "400127",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "자막 작업과 관련될 수 있지만, 문의의 핵심은 한국어 문법·높임법의 적절성에 관한 것으로 생성기나 넷플릭스 자막 규정으로 답할 수 없습니다."
+  },
+  {
+   "id": "400128",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "사이시옷 표기와 같은 한국어 맞춤법·표준어 규정에 관한 질문으로, 생성기나 넷플릭스 자막 가이드의 검사 항목을 묻는 내용이 아닙니다."
+  },
+  {
+   "id": "400129",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "‘가는 데’와 ‘가는데’의 구분은 한국어 띄어쓰기·문법 규범에 관한 질문으로, 생성기 검사나 넷플릭스 자막 가이드로 답할 수 있는 범위를 벗어납니다."
+  },
+  {
+   "id": "400130",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "‘웬일’과 ‘왠일’ 중 어느 것이 표준어인지 묻는 한국어 맞춤법·표준어 질문으로, 생성기 근거 문서의 답변 범위를 벗어납니다."
+  },
+  {
+   "id": "400131",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "‘어떡해’와 ‘어떻게 해’의 구분은 한국어 맞춤법·문법에 관한 질문으로, 생성기나 넷플릭스 자막 규정의 근거로 답하는 범위를 벗어납니다."
+  },
+  {
+   "id": "400133",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "압존법과 높임 표현의 어법·표준어 사용 여부를 묻는 질문으로, 생성기나 넷플릭스 자막 규정으로 답할 수 있는 범위를 벗어납니다."
+  },
+  {
+   "id": "400134",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "‘율’과 ‘률’의 구분은 한국어 맞춤법·표기 규칙에 관한 질문으로, 생성기나 넷플릭스 자막 가이드의 검사 항목을 묻는 것이 아닙니다."
+  },
+  {
+   "id": "400135",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "‘카페/까페’와 된소리 표기 여부는 한국어 외래어 표기법 및 맞춤법에 관한 질문으로, 생성기나 넷플릭스 자막 가이드의 검사 항목을 묻는 내용이 아닙니다."
+  },
+  {
+   "id": "400136",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "쿠팡플레이의 자막 규정상 글자 수 제한을 묻는 문의로, 넷플릭스 외 발주처의 규정 수치는 근거 문서로 답할 수 없습니다."
+  },
+  {
+   "id": "400137",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "디즈니플러스의 한국어 번역 자막 최소 노출 시간이라는 넷플릭스 외 발주처의 규정 수치를 묻고 있습니다."
+  },
+  {
+   "id": "400138",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "왓챠의 SDH 화자 표시 규정처럼 넷플릭스 외 발주처의 스타일 규정을 묻고 있어 근거 문서로 답할 수 없는 범주입니다."
+  },
+  {
+   "id": "400139",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "넷플릭스 한국어 자막 외주 에이전시의 연락처를 요청하는 내용으로, 생성기 사용법이나 자막 규정·검사 설명이 아닌 외부 업체 정보 요청이다."
+  },
+  {
+   "id": "400140",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "프리랜서 번역 계약서의 저작권·2차적 저작물 권리 양도 및 서명 여부에 관한 법률·계약 문의로, 자막 생성기나 넷플릭스 자막 규정으로 답할 수 없습니다."
+  },
+  {
+   "id": "400141",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "작업료 미지급 문제는 생성기 기능이나 자막·QC 규정이 아닌 계약·정산 관련 문의입니다."
+  },
+  {
+   "id": "400142",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "SDH 작업 단가 인상 요구는 생성기 기능이나 자막 규정 문의가 아니라 작업료·계약에 관한 사항입니다."
+  },
+  {
+   "id": "400143",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "파트너 포털의 비공개 QC 반려 사유 목록 전체를 요청하는 문의로, 근거 문서로 확인할 수 없는 비공개 자료 요청에 해당합니다."
+  },
+  {
+   "id": "400145",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "일본어 대사의 한국어 번역을 요청한 문의로, 생성기 관련 근거 문서로 답할 수 없는 번역 요청이다."
+  },
+  {
+   "id": "400146",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "Subtitle Edit 자체의 음성 파형 표시 메뉴를 묻는 질문으로, 생성기와 무관한 프로그램 사용법이다."
+  },
+  {
+   "id": "400147",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "VLC에서 자막 글꼴 크기를 조절하는 방법을 묻는 것으로, 생성기와 무관한 프로그램의 사용법입니다."
+  },
+  {
+   "id": "400149",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "영상 번역가로 일하기 위한 자격증이나 시험에 관한 진로·자격 요건 질문으로, 생성기 사용법이나 자막·SDH 규정으로 답할 수 있는 범위를 벗어납니다."
+  },
+  {
+   "id": "400150",
+   "gold": "OUT_OF_SCOPE",
+   "pred": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "HANDLE",
+   "reason": "자막·TC 생성기나 자막 작업 규정과 무관한 점심 메뉴 추천 요청입니다."
+  }
+ ],
+ "confusion": [
+  [
+   22,
+   0,
+   0,
+   2,
+   0
+  ],
+  [
+   0,
+   22,
+   1,
+   1,
+   0
+  ],
+  [
+   0,
+   1,
+   23,
+   0,
+   0
+  ],
+  [
+   0,
+   1,
+   0,
+   23,
+   0
+  ],
+  [
+   0,
+   0,
+   0,
+   0,
+   24
+  ]
+ ]
+}

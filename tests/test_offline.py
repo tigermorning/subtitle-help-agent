@@ -143,13 +143,20 @@ g = guardrail("", {"answer": "python -m checker 파일.srt -p netflix 로 검사
 ok("답변 속 명령어는 검증기가 잡는다", any(v["type"] == "명령어 노출" for v in g["violations"]))
 g = guardrail("", {"answer": "[파일 → 자막 저장]을 누르세요. [U-03]", "calls": [], "chunks": {}, "prompt_chunks": ["U-03"]})
 ok("메뉴 안내만 있으면 명령어로 보지 않는다", not any(v["type"] == "명령어 노출" for v in g["violations"]))
-CLI = _re.compile(r"(?<![\w+-])--[a-z]|python|pip|winget|ollama|\.bat|명령줄")
+# 한 글자 옵션(-p·-k)과 설치 경로(%APPDATA%)까지 잡는다. 앞서 이 줄에 낱말 경계
+# 이스케이프가 제어문자로 들어가 python·pip 검사가 죽어 있었다(2026-09-17).
+CLI = _re.compile(r"(?<![\w+\-–—])--?[a-z][\w-]*"
+                  r"|(?<![A-Za-z])(?:python3?|pip|winget|ollama)(?![A-Za-z])"
+                  r"|\.bat(?![A-Za-z])|명령줄|%APPDATA%")
 usage = (Path(__file__).resolve().parent.parent / "docs" / "10_usage.md").read_text(encoding="utf-8")
 ok("사용법 근거 문서에 명령줄 내용이 없다", not CLI.search(usage))
-leaks = [i["id"] for i in items if CLI.search(i["q"] + i["a"])]
+# 데이터에는 "명령어를 알려 달라"는 **한국어 표현**도 남으면 안 된다. 문서(`10_usage.md`)와
+# 매핑표는 규칙 자체를 설명하느라 그 낱말을 쓰므로 데이터에만 건다(2026-09-17).
+DATA_CLI = _re.compile(CLI.pattern + r"|명령어|터미널|콘솔 ?창")
+leaks = [i["id"] for i in items if DATA_CLI.search(i["q"] + i["a"])]
 ok("준비된 Q&A에 명령줄 내용이 없다", not leaks)
 for name in ["goldenset.json", "inquiries.csv", "hard_cases.csv", "answer_goldenset_multiturn.json"]:
-    ok(f"{name} 에 명령줄 내용이 없다", not CLI.search((DATA / name).read_text(encoding="utf-8-sig")))
+    ok(f"{name} 에 명령줄 내용이 없다", not DATA_CLI.search((DATA / name).read_text(encoding="utf-8-sig")))
 RULE_NO = _re.compile(r"(?<![A-Za-z0-9.+-])[CTSK]\d{2}(?![0-9A-Za-z])")
 leaks = [i["id"] for i in items if RULE_NO.search(i["q"] + i["a"])]
 ok("준비된 Q&A 질문·답에 규칙 번호가 없다", not leaks)

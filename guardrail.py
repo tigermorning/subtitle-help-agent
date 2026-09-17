@@ -25,7 +25,8 @@ URL = re.compile(r"https?://[^\s)\]>`'\"]+")
 NUM = re.compile(r"\d+(?:\.\d+)?")
 RULE_NO = re.compile(r"(?<![A-Za-z0-9.+-])[CTSK]\d{2}(?![0-9A-Za-z])")
 CHECK_NAME = re.compile(r"\b[a-z]+(?:_[a-z0-9]+){2,}\b")
-COMMAND = re.compile(r"\b(?:python3?|pip|winget|ollama)\b|\.bat\b|(?<![\w+-])-[a-z](?=\s)", re.I)
+COMMAND = re.compile(r"\b(?:python3?|pip|winget|ollama)\b|\.bat\b"
+                     r"|(?<![\w+\-–—])--?[a-z][\w-]*|%APPDATA%", re.I)
 
 
 def _strip_meta(text):

@@ -19,6 +19,7 @@ CLARIFY_MESSAGE = ("문의 내용을 조금 더 구체적으로 알려 주시겠
 
 class RouterState(TypedDict, total=False):
     question: str
+    history: list        # 앞 턴들 [{"role": "user"|"assistant", "text": ...}]
     route: str          # classify
     confidence: float   # classify
     reason: str         # classify
@@ -39,13 +40,23 @@ class RouteDecision(BaseModel):
 _chain = None
 
 
+def with_history(state):
+    """분류기에 줄 글. 앞 턴이 있으면 대화를 먼저 보여 주고 이번 문의를 분류하게 한다."""
+    prior = state.get("history") or []
+    if not prior:
+        return f"문의: {state['question']}"
+    lines = [f"{'사용자' if t['role'] == 'user' else '창구'}: {t['text']}" for t in prior]
+    return ("[앞선 대화]\n" + "\n".join(lines) +
+            f"\n\n[이번 문의 — 앞선 대화를 참고해 이것을 분류한다]\n문의: {state['question']}")
+
+
 def classify(state: RouterState) -> RouterState:
     """노드 ① 분류 — 모델이 카테고리와 확신도를 낸다."""
     global _chain
     if _chain is None:
         _chain = init_chat_model(MODEL, model_provider="openai", temperature=0,
                                  timeout=60, max_retries=2).with_structured_output(RouteDecision)
-    d = _chain.invoke([("system", ROUTE_GUIDE), ("human", f"문의: {state['question']}")])
+    d = _chain.invoke([("system", ROUTE_GUIDE), ("human", with_history(state))])
     return {"route": d.route, "confidence": d.confidence, "reason": d.reason}
 
 

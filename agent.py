@@ -21,6 +21,7 @@ WITHHOLD_MESSAGE = ("근거 문서로 확인되지 않는 내용이 답변에 �
 
 class AgentState(TypedDict, total=False):
     question: str
+    history: List[dict]      # 앞 턴들 [{"role": "user"|"assistant", "text": ...}]
     route: str               # classify
     confidence: float        # classify
     reason: str              # classify
@@ -37,7 +38,8 @@ class AgentState(TypedDict, total=False):
 
 def node_answer(state: AgentState) -> AgentState:
     fb = feedback_text(state["check"]) if state.get("check") and not state["check"]["ok"] else None
-    r = answer_with_tools(state["question"], state["route"], feedback=fb)
+    r = answer_with_tools(state["question"], state["route"], feedback=fb,
+                          history=state.get("history"))
     out = {k: r[k] for k in ("answer", "calls", "chunks", "prompt_chunks")}
     out["attempts"] = state.get("attempts", 0) + 1
     if fb:
@@ -46,7 +48,8 @@ def node_answer(state: AgentState) -> AgentState:
 
 
 def node_guard(state: AgentState) -> AgentState:
-    check = guardrail(state["question"], state)
+    prior = " ".join(t["text"] for t in state.get("history") or [])   # 앞 턴에 나온 수치·옵션도 출처로 인정
+    check = guardrail(f"{prior} {state['question']}", state)
     return {"check": check, "action": "ANSWER" if check["ok"] else "RETRY"}
 
 
@@ -84,9 +87,12 @@ def build_agent():
 agent_app = build_agent()
 
 
-def help_desk(question):
-    """문의 한 줄을 파이프라인에 통과시킨다. 되묻기면 answer 자리에 되묻는 문구를 넣는다."""
-    out = agent_app.invoke({"question": question})
+def help_desk(question, history=None):
+    """문의 한 줄을 파이프라인에 통과시킨다. 되묻기면 answer 자리에 되묻는 문구를 넣는다.
+
+    history: 앞 턴들 [{"role": "user"|"assistant", "text": ...}]. 대화 상태는 부르는 쪽이 들고 있다
+    """
+    out = agent_app.invoke({"question": question, "history": history or []})
     if out["action"] == "CLARIFY":
         out.update(answer=out["message"], calls=[], chunks={}, prompt_chunks=[])
     return {"question": question, **out}

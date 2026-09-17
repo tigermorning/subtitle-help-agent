@@ -1,0 +1,17 @@
+여러 턴 대화 n=12
+  도구 집합 일치 9/12
+  턴 답변 통과   24/24
+  대화 전체 통과 9/12
+
+실패
+
+  M-02 S02 설명 → 번역 자막 기준 이어 묻기
+    도구: 기대 ['get_check_info', 'search_style_rule'] / 실제 ['get_check_info']
+
+  M-03 버그 제보 → 재현 정보 제공 → 접수
+    도구: 기대 ['submit_feedback'] / 실제 ['search_usage', 'submit_feedback']
+
+  M-08 대본 붙여넣기 문의 → 형태만 적어 제보
+    도구: 기대 ['submit_feedback'] / 실제 ['get_check_info', 'search_usage', 'submit_feedback']
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\06-multiturn.json

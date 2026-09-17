@@ -55,15 +55,18 @@ def build_tool_graph():
 tool_app = build_tool_graph()
 
 
-def answer_with_tools(question, route, feedback=None, max_turns=MAX_TOOL_TURNS):
+def answer_with_tools(question, route, feedback=None, history=None, max_turns=MAX_TOOL_TURNS):
     """반환: {answer, calls, chunks, prompt_chunks, turn_limited}
 
     feedback: 검증에서 걸린 내용. 재생성할 때 모델에게 되돌려 준다.
+    history:  앞 턴들 [{"role": "user"|"assistant", "text": ...}]. 도구 결과는 넘기지 않는다 —
+              이번 턴에 필요한 근거는 이번 턴에 다시 조회한다
     """
     system, prompt_chunks = build_answer_prompt(route)
     if feedback:
         system += f"\n\n[직전 답변이 검증에서 걸렸다 — 고쳐서 다시 답한다]\n{feedback}\n"
-    init = {"messages": [("system", system), ("human", question)]}
+    prior = [("human" if t["role"] == "user" else "ai", t["text"]) for t in (history or [])]
+    init = {"messages": [("system", system), *prior, ("human", question)]}
     try:
         out = tool_app.invoke(init, {"recursion_limit": 2 * max_turns + 1})
     except GraphRecursionError:

@@ -1,0 +1,19 @@
+여러 턴 대화 n=12
+  도구 집합 일치 9/12
+  턴 답변 통과   23/24
+  대화 전체 통과 9/12
+
+실패
+
+  M-02 S02 설명 → 번역 자막 기준 이어 묻기
+    도구: 기대 ['get_check_info', 'search_style_rule'] / 실제 ['get_check_info']
+
+  M-03 버그 제보 → 재현 정보 제공 → 접수
+    도구: 기대 ['submit_feedback'] / 실제 ['search_usage', 'submit_feedback']
+
+  M-08 대본 붙여넣기 문의 → 형태만 적어 제보
+    도구: 기대 ['submit_feedback'] / 실제 ['get_check_info', 'search_usage', 'submit_feedback']
+    2턴 [FEEDBACK ANSWER ['get_check_info', 'submit_feedback']] must 누락 [] / forbid 위반 ['원인을 단정한다']
+      답변: 오탐 제보로 접수했습니다. 접수번호는 **FB-20260917-051**입니다.  T01은 라틴 문자·공백·문장부호를 0.5자로 계산해 한 줄 16자 초과 여부를 확인합니다. 가능하면 실행 방식, 사용한 `-p`·`-l`·`-k` 옵션, 오류 표시를 추가로 알려 주세요. [Q-T01, KO-I.2, F-02]
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\06-multiturn-2nd.json

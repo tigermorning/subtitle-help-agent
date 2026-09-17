@@ -1,0 +1,22 @@
+어려운 문항 n=72  통과 62/72
+  유형       통과   되묻기가 정답→되물음   처리가 정답→맞게 처리
+  경계모호       9/13          0/2                 9/11
+  극단단답      10/12          6/7                 4/5
+  다중의도      11/12          0/0                11/12
+  분류체계밖     11/11          0/0                11/11
+  텍스트손상     12/12          0/0                12/12
+  문맥의존       9/12          8/10                1/2
+
+실패
+  500006 [경계모호] 기대 HANDLE USAGE/OUT_OF_SCOPE → HANDLE STYLE_RULE (0.98) 장르를 variety로 주면 글자 수 기준이 얼마로 바뀌어요?
+  500007 [경계모호] 기대 HANDLE OUT_OF_SCOPE/USAGE → HANDLE QC_EXPLAIN (0.98) 한국어 교정에서 K02 떴는데 그 표기가 맞춤법상 맞는 거예요?
+  500008 [경계모호] 기대 CLARIFY USAGE/FEEDBACK → HANDLE FEEDBACK (0.93) 만든 자막 타임코드가 영상이랑 조금씩 밀려요.
+  500011 [경계모호] 기대 CLARIFY USAGE/STYLE_RULE → HANDLE USAGE (0.98) SRT 말고 TTML로 납품하라는데 어떻게 맞춰요?
+  500016 [극단단답] 기대 CLARIFY STYLE_RULE/USAGE → HANDLE STYLE_RULE (0.62) SDH는요?
+  500018 [극단단답] 기대 HANDLE USAGE/- → CLARIFY USAGE (0.40) --fix?
+  500036 [다중의도] 기대 HANDLE USAGE/STYLE_RULE → CLARIFY USAGE (0.46) --genre documentary로 돌리는 법이랑, 넷플릭스는 다큐 인터뷰 자막을 어떻게 처리하라고 하는지 알려 주세요
+  500064 [문맥의존] 기대 CLARIFY OUT_OF_SCOPE/- → HANDLE OUT_OF_SCOPE (0.98) 방금 알려 주신 번호 다시 한 번만 말해 주세요
+  500066 [문맥의존] 기대 CLARIFY FEEDBACK/USAGE → HANDLE FEEDBACK (0.96) 위에서 말한 대로 했는데 여전히 안 돼요
+  500069 [문맥의존] 기대 HANDLE OUT_OF_SCOPE/- → HANDLE USAGE (0.88) 아까 그 파일로 다시 한번 돌려 봐 주세요
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\06-hard.json

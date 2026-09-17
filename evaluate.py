@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 """지표를 잰다. 점수보다 그 아래 실패 목록이 중요하다 — 무엇을 고칠지가 거기 적혀 있다.
 
-    python evaluate.py                    # 전체: 분류 + 도구 호출 + 답변 (eval 분할)
-    python evaluate.py --only router      # 분류만 (빠르다)
-    python evaluate.py --validate         # 모범 답안으로 채점기 자체를 검증한다
+    python evaluate.py                    # 전체: 분류 + 도구 호출 + 답변 (goldenset eval 분할)
+    python evaluate.py --only router      # 분류만 — routing_answers.csv eval 분할(카테고리당 24건)
+    python evaluate.py --hard             # 어려운 문항 — 되묻기/처리 판단과 분류 (hard_cases.csv)
+    python evaluate.py --multiturn        # 여러 턴 대화 (answer_goldenset_multiturn.json)
+    python evaluate.py --validate         # 모범 답안으로 채점기 자체를 검증한다(1턴 + 여러 턴)
     python evaluate.py --label 01-이름     # runs/01-이름.json 으로 결과를 남긴다
 
 지표
@@ -12,6 +14,7 @@
     답변        must 전부 담고 forbid 하나도 안 어기면 1점 — 채점기(LLM)가 표현이 아니라 사실을 본다
 """
 import argparse
+import csv
 import json
 import sys
 from collections import Counter
@@ -101,6 +104,15 @@ def route_report(golds, preds):
     return cm.tolist()
 
 
+def load_routing(split):
+    inq = {r["qa_id"]: r for r in csv.DictReader(open(DATA / "inquiries.csv", encoding="utf-8-sig"))}
+    out = []
+    for a in csv.DictReader(open(DATA / "routing_answers.csv", encoding="utf-8-sig")):
+        if split == "all" or a["split"] == split:
+            out.append({"id": a["qa_id"], "route": a["route"], "question": inq[a["qa_id"]]["question"]})
+    return out
+
+
 def run_router(items):
     from router import route
     outs = pmap(lambda i: route(i["question"]), items, WORKERS)
@@ -168,6 +180,85 @@ def run_full(items):
                         "actions": dict(actions)}}
 
 
+def run_hard():
+    """어려운 문항. 되묻기가 정답인 문항은 action=CLARIFY, 나머지는 HANDLE + 분류를 본다.
+    다중의도는 route_expected·route_alt 둘 중 하나면 분류 정답으로 센다."""
+    from router import route
+    rows = list(csv.DictReader(open(DATA / "hard_cases.csv", encoding="utf-8-sig")))
+    outs = pmap(lambda r: route(r["question"]), rows, WORKERS)
+    res = []
+    for r, o in zip(rows, outs):
+        want = "CLARIFY" if r["expected_action"] == "CLARIFY" else "HANDLE"
+        ok_action = o["action"] == want
+        ok_route = True if want == "CLARIFY" else o["route"] in {r["route_expected"], r["route_alt"]} - {""}
+        res.append({"id": r["qa_id"], "type": r["hard_type"], "want": want, "got": o["action"],
+                    "route_expected": r["route_expected"], "route_alt": r["route_alt"], "route": o["route"],
+                    "confidence": o["confidence"], "pass": ok_action and ok_route, "question": r["question"]})
+    n = len(res)
+    print(f"어려운 문항 n={n}  통과 {sum(x['pass'] for x in res)}/{n}")
+    print("  유형       통과   되묻기가 정답→되물음   처리가 정답→맞게 처리")
+    for t in dict.fromkeys(x["type"] for x in res):
+        g = [x for x in res if x["type"] == t]
+        cl = [x for x in g if x["want"] == "CLARIFY"]
+        ha = [x for x in g if x["want"] == "HANDLE"]
+        print(f"  {t:<8} {sum(x['pass'] for x in g):>3}/{len(g):<3} "
+              f"{sum(x['got'] == 'CLARIFY' for x in cl):>9}/{len(cl):<9} {sum(x['pass'] for x in ha):>9}/{len(ha)}")
+    print("\n실패")
+    for x in res:
+        if not x["pass"]:
+            print(f"  {x['id']} [{x['type']}] 기대 {x['want']} {x['route_expected']}/{x['route_alt'] or '-'} "
+                  f"→ {x['got']} {x['route']} ({x['confidence']:.2f}) {x['question']}")
+    return {"rows": res, "pass": sum(x["pass"] for x in res), "n": n}
+
+
+def load_multiturn():
+    return json.loads((DATA / "answer_goldenset_multiturn.json").read_text(encoding="utf-8"))["conversations"]
+
+
+def run_multiturn():
+    from agent import help_desk
+
+    def one(conv):
+        history, called, turns, q = [], set(), [], None
+        for t in conv["turns"]:
+            if t["role"] == "user":
+                q = t["text"]
+                continue
+            r = help_desk(q, history)
+            called |= {c["name"] for c in r["calls"]}
+            e = t["expect"]
+            v = judge(q, r["answer"], e["must"], e["forbid"])
+            turns.append({"question": q, "answer": r["answer"], "route": r["route"], "action": r["action"],
+                          "calls": [c["name"] for c in r["calls"]], "pass": v["pass"],
+                          "missing": v["missing"], "violated": v["violated"]})
+            history += [{"role": "user", "text": q}, {"role": "assistant", "text": r["answer"]}]
+        allowed = [conv["tools_union"]] + conv.get("tools_union_alt", [])
+        tool_pass = any(sorted(called) == sorted(t) for t in allowed)
+        return {"id": conv["conv_id"], "title": conv["title"], "tool_pass": tool_pass,
+                "expected_tools": conv["tools_union"], "called": sorted(called), "turns": turns,
+                "pass": tool_pass and all(x["pass"] for x in turns)}
+
+    rows = pmap(one, load_multiturn(), WORKERS)
+    n = len(rows)
+    print(f"여러 턴 대화 n={n}")
+    print(f"  도구 집합 일치 {sum(r['tool_pass'] for r in rows)}/{n}")
+    print(f"  턴 답변 통과   {sum(t['pass'] for r in rows for t in r['turns'])}/{sum(len(r['turns']) for r in rows)}")
+    print(f"  대화 전체 통과 {sum(r['pass'] for r in rows)}/{n}")
+    print("\n실패")
+    for r in rows:
+        if r["pass"]:
+            continue
+        print(f"\n  {r['id']} {r['title']}")
+        if not r["tool_pass"]:
+            print(f"    도구: 기대 {r['expected_tools']} / 실제 {r['called']}")
+        for k, t in enumerate(r["turns"], 1):
+            if not t["pass"]:
+                print(f"    {k}턴 [{t['route']} {t['action']} {t['calls']}] must 누락 {t['missing']} / forbid 위반 {t['violated']}")
+                print("      답변: " + t["answer"].replace("\n", " ")[:250])
+    return {"rows": rows, "summary": {"n": n, "pass": sum(r["pass"] for r in rows),
+                                      "tool_pass": sum(r["tool_pass"] for r in rows)}}
+
+
 def run_validate(items):
     """모범 답안을 채점기에 넣는다. 전부 통과해야 채점기를 믿을 수 있다."""
     rows = pmap(lambda i: {"id": i["id"], **judge(i["question"], i["gold_answer"], i["must"], i["forbid"])},
@@ -182,7 +273,19 @@ def run_validate(items):
                  items, WORKERS)
     leaked = [r["id"] for r in empty if r["pass"]]
     print(f"채점기 검증 ② 빈 답변 통과 {len(leaked)}/{len(empty)} (0이어야 한다) {leaked}")
-    return {"rows": rows, "pass": ok, "empty_pass": leaked}
+    mt = [(c["conv_id"], k, u["text"], t["expect"]) for c in load_multiturn()
+          for k, (u, t) in enumerate(zip(c["turns"][::2], c["turns"][1::2]), 1)]
+    mt_ref = pmap(lambda x: (f"{x[0]}-{x[1]}", judge(x[2], x[3]["reference"], x[3]["must"], x[3]["forbid"])),
+                  mt, WORKERS)
+    mt_empty = pmap(lambda x: (f"{x[0]}-{x[1]}", judge(x[2], EMPTY_ANSWER, x[3]["must"], x[3]["forbid"])),
+                    mt, WORKERS)
+    print(f"채점기 검증 ③ 여러 턴 모범 답안 통과 {sum(v['pass'] for _, v in mt_ref)}/{len(mt_ref)} "
+          f"{[k for k, v in mt_ref if not v['pass']]}")
+    print(f"채점기 검증 ④ 여러 턴 빈 답변 통과 {sum(v['pass'] for _, v in mt_empty)}/{len(mt_empty)} (0이어야 한다) "
+          f"{[k for k, v in mt_empty if v['pass']]}")
+    return {"rows": rows, "pass": ok, "empty_pass": leaked,
+            "multiturn_ref_fail": [k for k, v in mt_ref if not v["pass"]],
+            "multiturn_empty_pass": [k for k, v in mt_empty if v["pass"]]}
 
 
 EMPTY_ANSWER = "문의 감사합니다. 확인해 보겠습니다."
@@ -192,6 +295,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", choices=["router"])
     ap.add_argument("--validate", action="store_true")
+    ap.add_argument("--hard", action="store_true")
+    ap.add_argument("--multiturn", action="store_true")
     ap.add_argument("--split", default="eval", choices=["eval", "fewshot", "all"])
     ap.add_argument("--label")
     args = ap.parse_args()
@@ -199,8 +304,12 @@ def main():
     items = load_items("all" if args.validate and args.split == "eval" else args.split)
     if args.validate:
         out = run_validate(items)
+    elif args.hard:
+        out = run_hard()
+    elif args.multiturn:
+        out = run_multiturn()
     elif args.only == "router":
-        out = run_router(items)
+        out = run_router(load_routing(args.split))
     else:
         out = run_full(items)
     if args.label:

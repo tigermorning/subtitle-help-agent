@@ -1,0 +1,37 @@
+
+① 분류  n=46
+  정확도  0.913
+  macro F1 0.904
+  혼동 행렬 (행=정답, 열=예측)
+                USAGE QC_EXP STYLE_ FEEDBA OUT_OF
+  USAGE             6      0      0      2      0
+  QC_EXPLAIN        0      8      0      0      0
+  STYLE_RULE        0      0     14      0      0
+  FEEDBACK          0      0      0      7      1
+  OUT_OF_SCOPE      0      0      1      0      7
+
+② 도구 호출 적절성  43/46 = 93.5%
+③ 답변 적절성       43/46 = 93.5%
+   둘 다 통과        43/46 = 93.5%
+   forbid 위반        0건
+   행동 분포          {'ANSWER': 46}
+   검증 재생성        0건
+
+실패 목록
+
+  F-004 [FEEDBACK→OUT_OF_SCOPE 0.98 ANSWER] 쿠팡플레이 영어 번역 자막 프로파일도 추가해 주실 수 있나요?
+    도구: 기대 ['submit_feedback'] / 실제 []
+    must 누락: ['건의를 접수했다']
+    답변: 쿠팡플레이 규정 수치나 프로파일은 이 창구에서 공개 근거를 갖고 답할 수 없습니다. 쿠팡플레이 발주처 가이드를 확인해 주세요.
+
+  F-007 [FEEDBACK→FEEDBACK 0.98 ANSWER] 오탐 재현용으로 방송 전 드라마 대본 3페이지 붙여넣을게요. 이거 보고 왜 T01이 잘못 잡히는지 봐 주세요
+    도구: 기대 ['submit_feedback'] / 실제 ['get_check_info']
+    must 누락: ['오탐 제보는 접수한다']
+    답변: 방송 전 대본은 붙여넣지 말아 주세요. 유출 시 계약에 영향을 줄 수 있고, 이 창구 답변은 외부 LLM API를 거칩니다.  대신 원문 없이 문제 형태만 알려 주세요. 예: “16자짜리 줄에 영문 약어와 공백이 섞였는데 T01이 표시됨”. T01은 한 줄이 16자를 넘는지 검사하며, 라틴 문자·공백·문장부호는 0.5자로 계산합니다. [F-04, Q-T01, KO-I.2]
+
+  F-008 [FEEDBACK→FEEDBACK 0.98 ANSWER] --ocr-hardsub 돌리다가 PC가 재부팅됐는데 다시 켜니까 처음부터 다시 스캔해요. 원래 이래요?
+    도구: 기대 ['search_usage', 'submit_feedback'] / 실제 ['search_usage']
+    must 누락: ['버그 제보로 접수했다']
+    답변: `--ocr-hardsub`은 끊겨도 이어서 실행되는 것으로 안내되어 있습니다. 다만 재부팅 뒤 처음부터 스캔되는 원인은 문서에서 찾지 못했습니다.  `ep01.work/`의 `manifest.json`에 멈춘 이유와 단계별 기록이 남을 수 있으니 확인해 보세요. [U-09, U-12]
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\05-route-guide-nr.json

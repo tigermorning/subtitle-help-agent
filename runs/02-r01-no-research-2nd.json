@@ -1,0 +1,2569 @@
+{
+ "rows": [
+  {
+   "id": "U-001",
+   "question": "TC 작업 끝난 파일 받아서 번역만 하는 건데, 타임코드 절대 안 움직이게 하려면 옵션 뭐 붙여요?",
+   "gold_route": "USAGE",
+   "route": "USAGE",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_usage"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "번역 타임코드 고정 절대 움직이지 않게 옵션"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "`--lock-timecodes`를 붙이시면 됩니다. 타임코드를 절대 건드리지 않고, 재분할도 막습니다. `--fix-timing`과 함께 쓰면 오류로 막힙니다. [U-07]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-04",
+     "R-05",
+     "U-04",
+     "U-07",
+     "U-12"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "`--lock-timecodes`를 붙이시면 됩니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "재분할도 막습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-002",
+   "question": "--lock-timecodes랑 --fix-timing을 같이 주면 타이밍만 살짝 고쳐지나요?",
+   "gold_route": "USAGE",
+   "route": "USAGE",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_usage"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "--lock-timecodes --fix-timing 함께 타이밍 교정"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "아닙니다. `--lock-timecodes`는 타임코드를 절대 건드리지 않으며 재분할도 막습니다. 따라서 `--fix-timing`과 함께 주면 타이밍을 조금 고치는 것이 아니라 오류로 막습니다. [U-07]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-04",
+     "R-05",
+     "U-04",
+     "U-07",
+     "U-14"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "\"`--fix-timing`과 함께 주면 타이밍을 조금 고치는 것이 아니라 오류로 막습니다.\""
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-003",
+   "question": "--fix 돌리면 원본 srt가 고쳐진 걸로 바뀌는 거죠? 백업 떠 놔야 하나 해서요",
+   "gold_route": "USAGE",
+   "route": "USAGE",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_usage"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "--fix 원본 SRT 덮어쓰기 백업 출력 파일"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "아니요. `--fix`는 원본을 덮어쓰지 않고 기본적으로 `파일.fixed.srt`로 출력합니다. 필요하면 `-o 출력.srt`로 출력 파일 이름을 지정할 수 있습니다. [U-06]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-04",
+     "R-05",
+     "U-04",
+     "U-06",
+     "U-14"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "`--fix`는 원본을 덮어쓰지 않고"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "기본적으로 `파일.fixed.srt`로 출력합니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-004",
+   "question": "SDH 파일 검사했는데 효과음 관련 지적이 하나도 안 나와요. -p netflix -l ko만 줬어요",
+   "gold_route": "USAGE",
+   "route": "FEEDBACK",
+   "confidence": 0.86,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_usage"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "SDH 효과음 검사 -p netflix -l ko -k 옵션"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "`-k sdh`를 지정하지 않아 종류가 `translation`으로 진행된 것으로 보입니다. 이 경우 효과음 규칙이 빠집니다.\n\n다음처럼 실행해 보세요.\n\n```bash\npython -m checker 파일.srt -p netflix -l ko -k sdh\n```\n\n영상에서 효과음을 찾아 자막에 얹는 기능은 별도로 `--sfx-scan` 또는 `--sfx`를 사용합니다. [U-04, U-09]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "R-04",
+     "R-05",
+     "U-04",
+     "U-09",
+     "U-14"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "`-k sdh`를 지정하지 않아 종류가 `translation`으로 진행된 것으로 보입니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "다음처럼 실행해 보세요.\n\n```bash\npython -m checker 파일.srt -p netflix -l ko -k sdh\n```\n\n이 경우 효과음 규칙이 빠집니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-005",
+   "question": "리포트 아래에 '미구현 검사'라고 몇 개 나오던데 그건 통과했다는 거죠?",
+   "gold_route": "USAGE",
+   "route": "USAGE",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_usage"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "리포트 미구현 검사 통과 의미"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "아닙니다. `미구현 검사`는 프로파일에는 있지만 아직 구현하지 않은 검사라는 뜻이며, 통과를 의미하지 않습니다. [U-05]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-04",
+     "R-05",
+     "U-04",
+     "U-05",
+     "U-16"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "\"통과를 의미하지 않습니다.\""
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "\"프로파일에는 있지만 아직 구현하지 않은 검사\""
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-006",
+   "question": "번역 돌리다가 3차 윤문에서 프로그램이 죽었어요ㅠ 처음부터 다시 돌려야 하나요?",
+   "gold_route": "USAGE",
+   "route": "FEEDBACK",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_usage"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "번역 3차 윤문 프로그램 종료 재시작 이어서 실행"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "화면 실행이었다면 결과가 `.work/`에 먼저 남으므로, 처음부터 다시 돌리기 전에 남은 결과를 확인해 보세요. 화면이 멈춘 경우에는 **[도움말 → 진단]**도 확인하시면 됩니다.  \n\n프로그램이 종료된 상황은 버그 제보 대상일 수 있습니다. 실행 방식, 누른 메뉴 또는 명령, 오류 문구를 한 번 알려 주시면 접수할 수 있습니다. [U-03, F-01, F-03]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "R-04",
+     "R-05",
+     "U-01",
+     "U-02",
+     "U-03"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "결과가 `.work/`에 먼저 남으므로"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "처음부터 다시 돌리기 전에 남은 결과를 확인해 보세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-007",
+   "question": "화면에 박힌 글자 OCR로 읽을 건데, 자막에 바로 넣지 말고 뭐가 잡히는지 목록만 먼저 보고 싶어요",
+   "gold_route": "USAGE",
+   "route": "USAGE",
+   "confidence": 0.9,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_usage"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "--ocr 화면에 박힌 글자 목록만 확인 자막에 넣지 않기"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "자막에 넣지 않고 목록만 보려면 다음처럼 실행하세요.\n\n```bash\n--ocr-scan --video ep01.mkv --ocr-lang ko\n```\n\n`--ocr-scan`은 화면 캡션을 목록으로만 확인하는 1단계입니다. 실제 자막에 얹는 것은 `--ocr`입니다. [U-09]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-04",
+     "R-05",
+     "U-03",
+     "U-09",
+     "U-16"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "`--ocr-scan`은 화면 캡션을 목록으로만 확인하는 1단계입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-008",
+   "question": "exe로 실행했는데 전사 모델을 못 찾는다고 떠요. 뭐부터 확인하면 돼요?",
+   "gold_route": "USAGE",
+   "route": "USAGE",
+   "confidence": 0.97,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_usage"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "exe 전사 모델을 못 찾는 오류 확인"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "먼저 **도움말 → 진단**에서 어떤 전사 모델을 찾았고 무엇이 없는지 확인해 보세요. 전사 모델은 `%APPDATA%\\자막생성기\\`에 두며, 프로그램 폴더에 두면 다시 빌드할 때 지워질 수 있습니다. 기존 `자막편집기` 폴더가 있으면 그 위치를 계속 사용합니다. [U-03]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-04",
+     "R-05",
+     "U-01",
+     "U-03",
+     "U-08"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "먼저 **도움말 → 진단**에서 어떤 전사 모델을 찾았고 무엇이 없는지 확인해 보세요."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "전사 모델은 `%APPDATA%\\자막생성기\\`에 두며"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-001",
+   "question": "SDH 검사에서 S02 읽기 속도 초과가 떴어요. 기준이 초당 몇 자예요?",
+   "gold_route": "QC_EXPLAIN",
+   "route": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "get_check_info"
+   ],
+   "called": [
+    "get_check_info"
+   ],
+   "calls": [
+    {
+     "name": "get_check_info",
+     "args": {
+      "rule": "S02"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "S02는 `[확인]` 검사입니다. SDH 읽기 속도 기준은 성인 프로그램 초당 최대 14자, 어린이 프로그램 초당 최대 11자입니다. 초과 시 의역하지 말고 줄이기·삭제·압축으로 조정합니다. [Q-S02, KO-II.3]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-II.3",
+     "Q-00",
+     "Q-S02",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "SDH 읽기 속도 기준은 성인 프로그램 초당 최대 14자"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "어린이 프로그램 초당 최대 11자"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "초과 시 의역하지 말고 줄이기·삭제·압축으로 조정합니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-002",
+   "question": "T05 줄 끝 마침표 쉼표 경고가 수십 개 나왔는데 이거 하나하나 손으로 지워야 해요?",
+   "gold_route": "QC_EXPLAIN",
+   "route": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "get_check_info"
+   ],
+   "called": [
+    "get_check_info"
+   ],
+   "calls": [
+    {
+     "name": "get_check_info",
+     "args": {
+      "rule": "T05"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "T05는 `[자동]` 검사입니다. `--fix`를 실행하면 원본은 유지한 채 새 파일에서 줄 끝 마침표·쉼표를 제거합니다. 한 자막 안에서 두 문장을 나눌 때는 줄 안의 쉼표는 유지합니다. [Q-00, Q-T05, KO-I.13]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-I.13",
+     "Q-00",
+     "Q-T05",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "T05는 `[자동]` 검사입니다. `--fix`를 실행하면 ... 제거합니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "원본은 유지한 채 새 파일에서 줄 끝 마침표·쉼표를 제거합니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-003",
+   "question": "S11 괄호 안 닫혔다는 건 왜 --fix로 안 고쳐져요? 그냥 끝에 ] 붙이면 되잖아요",
+   "gold_route": "QC_EXPLAIN",
+   "route": "FEEDBACK",
+   "confidence": 0.94,
+   "action": "ANSWER",
+   "expected_tools": [
+    "get_check_info"
+   ],
+   "called": [
+    "get_check_info"
+   ],
+   "calls": [
+    {
+     "name": "get_check_info",
+     "args": {
+      "rule": "S11"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "S11은 `[확인]` 항목이라 `--fix`가 고치지 않습니다. 닫는 `]`를 어느 위치에 넣어야 하는지는 사람이 판단해야 하기 때문입니다. `--fix`는 `[자동]` 항목만 새 파일에 수정합니다. [Q-00, Q-S11]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "KO-II.8",
+     "KO-II.9",
+     "Q-00",
+     "Q-S11",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "S11은 `[확인]` 항목이라 `--fix`가 고치지 않습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "닫는 `]`를 어느 위치에 넣어야 하는지는 사람이 판단해야 하기 때문입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "S11은 `[확인]` 항목이라 `--fix`가 고치지 않습니다."
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "닫는 `]`를 어느 위치에 넣어야 하는지는 사람이 판단해야 하기 때문입니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-004",
+   "question": "T01 한 줄 글자 수 초과가 떴는데 영어 단어 섞인 줄이에요. 영어도 한 글자씩 세나요?",
+   "gold_route": "QC_EXPLAIN",
+   "route": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "get_check_info"
+   ],
+   "called": [
+    "get_check_info"
+   ],
+   "calls": [
+    {
+     "name": "get_check_info",
+     "args": {
+      "rule": "T01"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "영어처럼 라틴 문자는 한 글자당 0.5자로 셉니다. 공백과 문장부호도 각각 0.5자입니다. T01은 한 줄이 16자를 넘으면 뜨는 `[확인]` 검사이므로, 문장을 줄이거나 최대 2줄로 나누어 조정해 주세요. [Q-T01, KO-I.2]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-I.2",
+     "Q-00",
+     "Q-T01",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "T01은 한 줄이 16자를 넘으면 뜨는 `[확인]` 검사"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "영어처럼 라틴 문자는 한 글자당 0.5자로 셉니다. 공백과 문장부호도 각각 0.5자입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-005",
+   "question": "S05에서 [외국어로 말한다] 쓰지 말라고 나오는데 그럼 뭐라고 써요?",
+   "gold_route": "QC_EXPLAIN",
+   "route": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "get_check_info"
+   ],
+   "called": [
+    "get_check_info"
+   ],
+   "calls": [
+    {
+     "name": "get_check_info",
+     "args": {
+      "rule": "S05"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "[외국어로 말한다] 대신 언어를 특정해 `[일어로 말한다]`처럼 쓰시면 됩니다. 알아들을 수 없는 가짜 언어라면 `[가짜 언어로 말한다]`를 씁니다. S05는 `[확인]` 검사라 자동 수정되지 않습니다. [Q-S05, KO-II.6, Q-00]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-II.6",
+     "Q-00",
+     "Q-S05",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "대신 언어를 특정해 `[일어로 말한다]`처럼 쓰시면 됩니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "`[일어로 말한다]`처럼 쓰시면 됩니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-006",
+   "question": "C05 간격이 짧다고 떴는데, 넷플릭스는 프레임 간격 규정 없어진 거 아니었어요?",
+   "gold_route": "QC_EXPLAIN",
+   "route": "QC_EXPLAIN",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "get_check_info"
+   ],
+   "called": [
+    "get_check_info"
+   ],
+   "calls": [
+    {
+     "name": "get_check_info",
+     "args": {
+      "rule": "C05"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "없어진 규정으로 안내되지 않습니다. C05는 넷플릭스 공통 규정 `TM-5`에 따른 `[확인]` 검사이며, 자막 사이는 모든 프레임레이트에서 최소 2프레임이어야 합니다.\n\n현재 검사는 2프레임 미만 또는 겹침만 잡습니다. 24fps 기준 3~11프레임 간격을 2프레임으로 닫는 규정은 있으나, 이 부분은 미구현이라 직접 확인해야 합니다. [Q-C05, TM-5]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "Q-00",
+     "Q-C05",
+     "R-04",
+     "R-05",
+     "TM-5"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "자막 사이는 모든 프레임레이트에서 최소 2프레임이어야 합니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "24fps 기준 3~11프레임 간격을 2프레임으로 닫는 규정은 있으나"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없어진 규정으로 안내되지 않습니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-007",
+   "question": "T12 숫자 표기 검사 돌렸는데 '21시'라고 쓴 건 안 잡히더라고요. 그럼 괜찮은 거죠?",
+   "gold_route": "QC_EXPLAIN",
+   "route": "QC_EXPLAIN",
+   "confidence": 0.96,
+   "action": "ANSWER",
+   "expected_tools": [
+    "get_check_info"
+   ],
+   "called": [
+    "get_check_info"
+   ],
+   "calls": [
+    {
+     "name": "get_check_info",
+     "args": {
+      "rule": "T12"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "`21시`는 24시간제 시각에 해당합니다. T12의 `clock_24h` 검사는 **미구현**이라 잡히지 않아도 통과를 뜻하지 않습니다. 군대 맥락이 아니라면 24시간제를 쓰지 않도록 직접 확인해 주세요. [Q-00, Q-T12, KO-I.12]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-I.12",
+     "Q-00",
+     "Q-T12",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "T12의 `clock_24h` 검사는 **미구현**이라"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "잡히지 않아도 통과를 뜻하지 않습니다."
+     },
+     {
+      "index": 3,
+      "ok": true,
+      "quote": "군대 맥락이 아니라면 24시간제를 쓰지 않도록 직접 확인해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-008",
+   "question": "S06 경고가 [문 두드리는 소리]에 떴어요. 이게 왜 문제예요?",
+   "gold_route": "QC_EXPLAIN",
+   "route": "QC_EXPLAIN",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "get_check_info"
+   ],
+   "called": [
+    "get_check_info"
+   ],
+   "calls": [
+    {
+     "name": "get_check_info",
+     "args": {
+      "rule": "S06"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "S06은 효과음 설명이 **“소리”** 또는 **“들린다”**로 끝나는지 보는 `[확인]` 검사입니다. `[문 두드리는 소리]`가 이에 해당해 경고가 뜬 것입니다.\n\n동작보다 실제 들리는 소리를 적어 `[똑똑]`처럼 고쳐 보세요. [Q-S06, KO-II.9]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-II.9",
+     "Q-00",
+     "Q-S06",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "S06은 효과음 설명이 **“소리”** 또는 **“들린다”**로 끝나는지 보는 `[확인]` 검사입니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "동작보다 실제 들리는 소리를 적어 `[똑똑]`처럼 고쳐 보세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-001",
+   "question": "SDH에서 아직 이름이 안 나온 인물이 말하면 화자 표시 어떻게 해요?",
+   "gold_route": "STYLE_RULE",
+   "route": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "calls": [
+    {
+     "name": "search_style_rule",
+     "args": {
+      "query": "SDH 화자 표시 아직 이름이 나오지 않은 인물"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "이름이 아직 나오지 않은 인물은 `[여자]`, `[남자]`로 표시합니다. 같은 장면에 같은 표시가 여러 명이면 `[여자1]`처럼 최소한으로 번호를 붙이고, 장면이 바뀌면 번호를 다시 셉니다. 이름이 밝혀진 뒤에는 모든 인물에게 이름을 일관되게 씁니다. [KO-II.8]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-II.6",
+     "KO-II.7",
+     "KO-II.8",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "이름이 아직 나오지 않은 인물은 `[여자]`, `[남자]`로 표시합니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "같은 장면에 같은 표시가 여러 명이면 `[여자1]`처럼 최소한으로 번호를 붙이고, 장면이 바뀌면 번호를 다시 셉니다."
+     },
+     {
+      "index": 3,
+      "ok": true,
+      "quote": "같은 장면에 같은 표시가 여러 명이면 `[여자1]`처럼 최소한으로 번호를 붙이고"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-002",
+   "question": "번역 자막 한 줄 안에 문장이 두 개면 중간에 마침표 찍는 게 맞죠?",
+   "gold_route": "STYLE_RULE",
+   "route": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "calls": [
+    {
+     "name": "search_style_rule",
+     "args": {
+      "query": "번역 자막 문장부호 마침표 한 줄 두 문장 줄 처리"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "아닙니다. 번역 자막에서 한 자막 안의 두 문장은 마침표가 아니라 쉼표로 가릅니다. 자막 줄 끝에는 마침표·쉼표를 찍지 않습니다. [KO-I.13]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "GR-4",
+     "KO-I.11",
+     "KO-I.13",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "한 자막 안의 두 문장은 마침표가 아니라 쉼표로 가릅니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "마침표가 아니라 쉼표로 가릅니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-003",
+   "question": "말줄임표 그냥 점 세 개 ... 쳐도 되나요? 맞춤법상 둘 다 된다던데",
+   "gold_route": "STYLE_RULE",
+   "route": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "calls": [
+    {
+     "name": "search_style_rule",
+     "args": {
+      "query": "번역 자막 말줄임표 점 세 개 ... 연속성"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "번역 자막에서는 점 세 개 `...` 대신 한 글자짜리 말줄임표 `…`(U+2026)를 쓰셔야 합니다. [KO-I.4]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-I.4",
+     "KO-I.8",
+     "KO-II.7",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "한 글자짜리 말줄임표 `…`(U+2026)를 쓰셔야 합니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-004",
+   "question": "SDH 노래 가사에 음표 붙이는 방법 알려 주세요. 앞에만 붙이면 되나요?",
+   "gold_route": "STYLE_RULE",
+   "route": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "calls": [
+    {
+     "name": "search_style_rule",
+     "args": {
+      "query": "SDH 노래와 음악 음표 가사 표기"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "아니요. SDH 노래 가사는 **자막마다 앞뒤에 모두 음표(♪)** 를 둡니다. 음표와 글자 사이에는 각각 공백 한 칸을 넣습니다. 듀엣은 각 줄의 앞뒤에 음표를 붙입니다. [KO-II.7]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-I.17",
+     "KO-II.7",
+     "KO-II.9",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "자막마다 앞뒤에 모두 음표(♪)를 둡니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "음표와 글자 사이에는 각각 공백 한 칸을 넣습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "아니요. SDH 노래 가사는 자막마다 앞뒤에 모두 음표(♪)를 둡니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-005",
+   "question": "대사에 '500달러'가 나오는데 시청자 편하게 원화로 바꿔 줘도 되나요?",
+   "gold_route": "STYLE_RULE",
+   "route": "STYLE_RULE",
+   "confidence": 0.97,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "calls": [
+    {
+     "name": "search_style_rule",
+     "args": {
+      "query": "번역 자막 통화 달러 원화 환산 통화 표기"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "원화로 환산하지 마시고, 대사 속 원래 통화인 달러로 두셔야 합니다. [GR-9, KO-I.12]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "GR-9",
+     "KO-I.12",
+     "R-04",
+     "R-05",
+     "TM-3"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "원화로 환산하지 마시고"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "대사 속 원래 통화인 달러로 두셔야 합니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-006",
+   "question": "한국 드라마 SDH 작업했는데 마지막에 번역자 크레디트 넣어야 해요?",
+   "gold_route": "STYLE_RULE",
+   "route": "STYLE_RULE",
+   "confidence": 0.93,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "calls": [
+    {
+     "name": "search_style_rule",
+     "args": {
+      "query": "SDH 번역자 크레디트 마지막 크레디트"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "원어에서 번역한 SDH라면 자막 파일의 마지막 사건으로 번역자 크레디트를 넣습니다. 원음·더빙 음성을 받아 적은 SDH라면 넣지 않습니다. 에피소드·장편에만 적용되며, 권리 포기서가 있는 경우에만 생략할 수 있습니다. [GR-12]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "GR-12",
+     "GR-7",
+     "KO-II.7",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "원어에서 번역한 SDH라면 자막 파일의 마지막 사건으로 번역자 크레디트를 넣습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "원음·더빙 음성을 받아 적은 SDH라면 넣지 않습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "원어에서 번역한 SDH라면 ... 넣습니다. 원음·더빙 음성을 받아 적은 SDH라면 넣지 않습니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-007",
+   "question": "장면 전환되고 조금 뒤에 대사가 시작하면 인점은 소리 시작에 맞춰요, 전환에 맞춰요?",
+   "gold_route": "STYLE_RULE",
+   "route": "STYLE_RULE",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "calls": [
+    {
+     "name": "search_style_rule",
+     "args": {
+      "query": "장면 전환 뒤 대사 시작 인점 소리 시작 장면 전환 타이밍"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "대사가 장면 전환 뒤 **반 초 이내**에 시작하면 인점은 **전환 첫 프레임**에 맞춥니다. 반 초를 넘겨 시작하면 소리 첫 프레임(또는 1~2프레임 이내)에 맞춥니다. [TM-2, TM-1]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-04",
+     "R-05",
+     "TM-1",
+     "TM-2",
+     "TM-4"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "대사가 장면 전환 뒤 **반 초 이내**에 시작하면 인점은 **전환 첫 프레임**에 맞춥니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-008",
+   "question": "미드 부부 대화 번역할 때 아내는 존댓말, 남편은 반말로 하면 되죠?",
+   "gold_route": "STYLE_RULE",
+   "route": "OUT_OF_SCOPE",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [],
+   "calls": [],
+   "tool_pass": false,
+   "answer": "영상·대본 내용의 번역 방식은 이 창구에서 근거를 갖고 답할 수 없습니다. 해당 작품의 발주처 가이드나 번역 지침을 확인해 주세요. [R-04]",
+   "answer_pass": false,
+   "missing": [
+    "맥락·관계·시대 등을 보고 정한다",
+    "성별이나 나이만으로 정하지 않는다"
+   ],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-01",
+     "R-02",
+     "R-03",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-009",
+   "question": "자막에서 '11개'처럼 숫자로 써도 되나요, '열한 개'로 풀어야 하나요?",
+   "gold_route": "STYLE_RULE",
+   "route": "STYLE_RULE",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "calls": [
+    {
+     "name": "search_style_rule",
+     "args": {
+      "query": "번역 자막 숫자 11개 표기 숫자 한글"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "`11개`처럼 아라비아 숫자로 써도 되고, `열한 개`처럼 풀어 써도 됩니다. 공간과 읽기 속도를 보고 판단하세요. [KO-I.12]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-I.12",
+     "R-04",
+     "R-05",
+     "TM-3",
+     "TM-5"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "`11개`처럼 아라비아 숫자로 써도 되고, `열한 개`처럼 풀어 써도 됩니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "공간과 읽기 속도를 보고 판단하세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-001",
+   "question": "WebVTT 파일도 검사할 수 있게 해 주세요. 요즘 vtt로 받는 일이 많아요",
+   "gold_route": "FEEDBACK",
+   "route": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "submit_feedback"
+   ],
+   "called": [
+    "submit_feedback"
+   ],
+   "calls": [
+    {
+     "name": "submit_feedback",
+     "args": {
+      "kind": "feature",
+      "summary": "WebVTT 파일 검사 지원 요청"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "WebVTT 파일 검사 지원 요청을 접수했습니다. 접수번호는 **FB-20260917-010**입니다. [F-02]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "WebVTT 파일 검사 지원 요청을 접수했습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "접수번호는 **FB-20260917-010**입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-002",
+   "question": "--fix 돌렸더니 [진수/속삭임] 같은 화자 표시 괄호가 깨져서 나와요",
+   "gold_route": "FEEDBACK",
+   "route": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "submit_feedback"
+   ],
+   "called": [
+    "search_usage",
+    "submit_feedback"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "--fix 화자 표시 괄호 깨짐"
+     }
+    },
+    {
+     "name": "submit_feedback",
+     "args": {
+      "kind": "bug",
+      "summary": "--fix 실행 후 [진수/속삭임] 같은 화자 표시 괄호가 깨져서 출력됨"
+     }
+    }
+   ],
+   "tool_pass": false,
+   "answer": "버그로 접수했습니다. 접수번호는 **FB-20260917-014**입니다.\n\n가능하면 실행 방식과 실행한 명령, 오류 문구를 알려 주세요. 미공개 자막 원문은 붙여넣지 마시고, 문제 형태만 설명해 주세요. [U-06, F-02]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "R-04",
+     "R-05",
+     "U-06",
+     "U-07",
+     "U-14"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "버그로 접수했습니다. 접수번호는 **FB-20260917-014**입니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "가능하면 실행 방식과 실행한 명령, 오류 문구를 알려 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-003",
+   "question": "기울임 태그 들어간 줄이 태그까지 글자 수로 세서 초과로 잡히는 것 같아요",
+   "gold_route": "FEEDBACK",
+   "route": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "submit_feedback"
+   ],
+   "called": [
+    "submit_feedback"
+   ],
+   "calls": [
+    {
+     "name": "submit_feedback",
+     "args": {
+      "kind": "false_positive",
+      "summary": "기울임 태그가 포함된 줄에서 태그까지 글자 수로 계산되어 글자 수 초과로 잡히는 것으로 보인다는 검사 오탐 제보"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "검사 오탐 제보로 접수했습니다. 접수번호는 **FB-20260917-011**입니다. 가능하면 실행 방식과 오류가 난 검사 항목·문구를 알려 주세요. [F-02]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "검사 오탐 제보로 접수했습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-004",
+   "question": "쿠팡플레이 영어 번역 자막 프로파일도 추가해 주실 수 있나요?",
+   "gold_route": "FEEDBACK",
+   "route": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "submit_feedback"
+   ],
+   "called": [
+    "submit_feedback"
+   ],
+   "calls": [
+    {
+     "name": "submit_feedback",
+     "args": {
+      "kind": "feature",
+      "summary": "쿠팡플레이 영어 번역 자막 프로파일 추가 요청"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "쿠팡플레이 영어 번역 자막 프로파일 추가 요청을 접수했습니다. 접수번호는 **FB-20260917-012**입니다. [F-02]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "쿠팡플레이 영어 번역 자막 프로파일 추가 요청을 접수했습니다. 접수번호는 **FB-20260917-012**입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-005",
+   "question": "장면 전환 근처 타이밍이 규정에 맞는지 파형에 초록 빨강으로 표시해 주면 좋겠어요",
+   "gold_route": "FEEDBACK",
+   "route": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "submit_feedback"
+   ],
+   "called": [
+    "submit_feedback"
+   ],
+   "calls": [
+    {
+     "name": "submit_feedback",
+     "args": {
+      "kind": "feature",
+      "summary": "장면 전환 근처 타이밍의 규정 적합 여부를 파형에서 초록색·빨간색으로 표시하는 기능 요청"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "기능 건의로 접수했습니다. 접수번호는 **FB-20260917-013**입니다. [F-02]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "기능 건의로 접수했습니다. 접수번호는 **FB-20260917-013**입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-006",
+   "question": "검사 리포트를 폴더에 파일별로 한꺼번에 내보내는 기능 있나요? 없으면 만들어 주세요",
+   "gold_route": "FEEDBACK",
+   "route": "FEEDBACK",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_usage",
+    "submit_feedback"
+   ],
+   "called": [
+    "search_usage",
+    "submit_feedback"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "검사 리포트 폴더 파일별 한꺼번에 내보내기"
+     }
+    },
+    {
+     "name": "submit_feedback",
+     "args": {
+      "kind": "feature",
+      "summary": "검사 리포트를 폴더 단위로 파일별 일괄 내보내는 기능 요청"
+     }
+    }
+   ],
+   "tool_pass": true,
+   "answer": "문서에서 폴더별·파일별 일괄 리포트 내보내기 기능은 찾지 못했습니다. 기능 건의로 접수했습니다: **FB-20260917-015** [U-04, F-02]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "R-04",
+     "R-05",
+     "U-03",
+     "U-04",
+     "U-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "문서에서 폴더별·파일별 일괄 리포트 내보내기 기능은 찾지 못했습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "기능 건의로 접수했습니다: **FB-20260917-015**"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-007",
+   "question": "오탐 재현용으로 방송 전 드라마 대본 3페이지 붙여넣을게요. 이거 보고 왜 T01이 잘못 잡히는지 봐 주세요",
+   "gold_route": "FEEDBACK",
+   "route": "FEEDBACK",
+   "confidence": 0.98,
+   "action": "ANSWER",
+   "expected_tools": [
+    "submit_feedback"
+   ],
+   "called": [
+    "get_check_info"
+   ],
+   "calls": [
+    {
+     "name": "get_check_info",
+     "args": {
+      "rule": "T01"
+     }
+    }
+   ],
+   "tool_pass": false,
+   "answer": "방송 전 대본 원문은 붙여넣지 말아 주세요. 이 창구의 답변 생성은 외부 LLM API를 거칩니다.\n\nT01은 번역 자막에서 한 줄이 16자를 넘을 때 표시하며, 라틴 문자·공백·문장부호는 0.5자로 계산합니다. 재현이 필요하면 원문 대신 예를 들어 “16자짜리 줄에 영문 약어와 공백이 섞인 경우”처럼 문제 자막의 **형태만** 알려 주세요. [F-04, Q-T01, KO-I.2]",
+   "answer_pass": false,
+   "missing": [
+    "오탐 제보는 접수한다"
+   ],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "KO-I.2",
+     "Q-00",
+     "Q-T01",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "방송 전 대본 원문은 붙여넣지 말아 주세요."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "문제 자막의 **형태만** 알려 주세요."
+     },
+     {
+      "index": 3,
+      "ok": false,
+      "quote": "없음"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "방송 전 대본 원문은 붙여넣지 말아 주세요."
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-008",
+   "question": "--ocr-hardsub 돌리다가 PC가 재부팅됐는데 다시 켜니까 처음부터 다시 스캔해요. 원래 이래요?",
+   "gold_route": "FEEDBACK",
+   "route": "FEEDBACK",
+   "confidence": 0.96,
+   "action": "ANSWER",
+   "expected_tools": [
+    "search_usage",
+    "submit_feedback"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "calls": [
+    {
+     "name": "search_usage",
+     "args": {
+      "query": "--ocr-hardsub 재부팅 다시 스캔 처음부터"
+     }
+    }
+   ],
+   "tool_pass": false,
+   "answer": "`--ocr-hardsub`은 끊겨도 이어서 돌도록 되어 있습니다. 다만 재부팅 뒤 처음부터 스캔되는 이유는 문서 조각만으로 확인하지 못했습니다. 중간 결과는 기본적으로 `ep01.work/`에 남으며, `manifest.json`에서 멈춘 이유와 단계 기록을 확인할 수 있습니다. [U-09, U-12]",
+   "answer_pass": false,
+   "missing": [
+    "버그 제보로 접수했다"
+   ],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-01",
+     "F-02",
+     "F-03",
+     "F-04",
+     "F-05",
+     "R-04",
+     "R-05",
+     "U-09",
+     "U-12",
+     "U-13"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "`--ocr-hardsub`은 끊겨도 이어서 돌도록 되어 있습니다."
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-001",
+   "question": "자막에 '되요'랑 '돼요' 중에 뭐가 맞아요?",
+   "gold_route": "OUT_OF_SCOPE",
+   "route": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "refer_to_nikl"
+   ],
+   "called": [
+    "refer_to_nikl"
+   ],
+   "calls": [
+    {
+     "name": "refer_to_nikl",
+     "args": {}
+    }
+   ],
+   "tool_pass": true,
+   "answer": "맞춤법 표기 판단은 국립국어원 자료로 확인해 주세요. 온라인가나다 또는 한국어 어문 규범을 이용하실 수 있습니다.  \nhttps://www.korean.go.kr/front/onlineQna/onlineQnaList.do  \nhttps://www.korean.go.kr/kornorms/main/main.do [R-01, R-02]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-I.21",
+     "R-01",
+     "R-02",
+     "R-03",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "맞춤법 표기 판단은 국립국어원 자료로 확인해 주세요. 온라인가나다 또는 한국어 어문 규범을 이용하실 수 있습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-002",
+   "question": "구어체 살리려고 '할께요'라고 써도 돼요?",
+   "gold_route": "OUT_OF_SCOPE",
+   "route": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "refer_to_nikl"
+   ],
+   "called": [
+    "refer_to_nikl"
+   ],
+   "calls": [
+    {
+     "name": "refer_to_nikl",
+     "args": {}
+    }
+   ],
+   "tool_pass": true,
+   "answer": "한국어 어문 규범 표기 판단은 이 창구에서 하지 않습니다. 국립국어원 온라인가나다 또는 한국어 어문 규범에서 확인해 주세요.  \nhttps://www.korean.go.kr/front/onlineQna/onlineQnaList.do  \nhttps://www.korean.go.kr/kornorms/main/main.do [R-01, R-02]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-I.21",
+     "R-01",
+     "R-02",
+     "R-03",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "국립국어원 온라인가나다 또는 한국어 어문 규범에서 확인해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-003",
+   "question": "'컨텐츠'랑 '콘텐츠' 중에 외래어 표기법으로 뭐가 맞아요?",
+   "gold_route": "OUT_OF_SCOPE",
+   "route": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "refer_to_nikl"
+   ],
+   "called": [
+    "refer_to_nikl"
+   ],
+   "calls": [
+    {
+     "name": "refer_to_nikl",
+     "args": {}
+    }
+   ],
+   "tool_pass": true,
+   "answer": "외래어 표기법 판단은 국립국어원 자료로 확인해 주세요. 이 창구에서는 특정 표기가 맞는지 판정하지 않습니다.  \nhttps://www.korean.go.kr/kornorms/main/main.do  \nhttps://stdict.korean.go.kr/ [R-01, R-02]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-I.21",
+     "R-01",
+     "R-02",
+     "R-03",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "국립국어원 자료로 확인해 주세요. https://www.korean.go.kr/kornorms/main/main.do https://stdict.korean.go.kr/"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-004",
+   "question": "'안 되다'랑 '안되다' 띄어쓰기 자막에서 매번 헷갈려요",
+   "gold_route": "OUT_OF_SCOPE",
+   "route": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [
+    "refer_to_nikl"
+   ],
+   "called": [
+    "refer_to_nikl"
+   ],
+   "calls": [
+    {
+     "name": "refer_to_nikl",
+     "args": {}
+    }
+   ],
+   "tool_pass": true,
+   "answer": "띄어쓰기 어문 규범 질문은 국립국어원 자료로 확인해 주세요. 온라인가나다에도 문의할 수 있습니다.  \nhttps://www.korean.go.kr/front/onlineQna/onlineQnaList.do [R-01, R-02]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "KO-I.21",
+     "R-01",
+     "R-02",
+     "R-03",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "띄어쓰기 어문 규범 질문은 국립국어원 자료로 확인해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-005",
+   "question": "넷플릭스 한국어 자막 번역 단가 보통 분당 얼마 받아요?",
+   "gold_route": "OUT_OF_SCOPE",
+   "route": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [],
+   "called": [],
+   "calls": [],
+   "tool_pass": true,
+   "answer": "작업료·단가는 이 창구에서 근거를 갖고 답할 수 없습니다. 계약서나 발주처·에이전시에 확인해 주세요. [R-04]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-01",
+     "R-02",
+     "R-03",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "작업료·단가는 이 창구에서 근거를 갖고 답할 수 없습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-006",
+   "question": "디즈니플러스 한국어 SDH는 읽기 속도 기준이 몇 자예요?",
+   "gold_route": "OUT_OF_SCOPE",
+   "route": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [],
+   "called": [],
+   "calls": [],
+   "tool_pass": true,
+   "answer": "이 창구에서는 넷플릭스 외 발주처인 디즈니플러스의 규정 수치를 공개 근거로 답할 수 없습니다. 디즈니플러스 발주처 가이드를 확인해 주세요. [R-04]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-01",
+     "R-02",
+     "R-03",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "디즈니플러스의 규정 수치를 공개 근거로 답할 수 없습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "디즈니플러스 발주처 가이드를 확인해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-007",
+   "question": "넷플릭스 한국어 음역 지침 파일 있으면 내용 좀 요약해 주세요",
+   "gold_route": "OUT_OF_SCOPE",
+   "route": "STYLE_RULE",
+   "confidence": 0.9,
+   "action": "ANSWER",
+   "expected_tools": [],
+   "called": [],
+   "calls": [],
+   "tool_pass": true,
+   "answer": "넷플릭스 비공개 포털의 음역 지침은 이 창구에서 제공하거나 요약할 수 없습니다. 공개된 가이드 또는 담당 발주처 자료를 확인해 주세요.",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "넷플릭스 비공개 포털의 음역 지침은 이 창구에서 제공하거나 요약할 수 없습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-008",
+   "question": "이 대사 한국어 자막으로 좀 번역해 줘요: \"You can't handle the truth!\"",
+   "gold_route": "OUT_OF_SCOPE",
+   "route": "OUT_OF_SCOPE",
+   "confidence": 0.99,
+   "action": "ANSWER",
+   "expected_tools": [],
+   "called": [],
+   "calls": [],
+   "tool_pass": true,
+   "answer": "영상·대본 내용 자체의 번역 요청은 이 창구에서 근거를 갖고 답할 수 없습니다. [R-04]",
+   "answer_pass": true,
+   "missing": [],
+   "violated": [],
+   "guard": {
+    "ok": true,
+    "violations": [],
+    "evidence_chunks": [
+     "F-04",
+     "R-01",
+     "R-02",
+     "R-03",
+     "R-04",
+     "R-05"
+    ]
+   },
+   "retried": false,
+   "judge": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "영상·대본 내용 자체의 번역 요청은 이 창구에서 근거를 갖고 답할 수 없습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  }
+ ],
+ "confusion": [
+  [
+   6,
+   0,
+   0,
+   2,
+   0
+  ],
+  [
+   0,
+   7,
+   0,
+   1,
+   0
+  ],
+  [
+   0,
+   0,
+   8,
+   0,
+   1
+  ],
+  [
+   0,
+   0,
+   0,
+   8,
+   0
+  ],
+  [
+   0,
+   0,
+   1,
+   0,
+   7
+  ]
+ ],
+ "summary": {
+  "n": 41,
+  "tool_pass": 37,
+  "answer_pass": 38,
+  "both": 37,
+  "route_acc": 0.8780487804878049,
+  "actions": {
+   "ANSWER": 41
+  }
+ }
+}

@@ -1,0 +1,1434 @@
+{
+ "rows": [
+  {
+   "id": "U-001",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "\"--lock-timecodes를 붙이시면 됩니다.\""
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "\"재분할도 막아서 경계가 새로 생기지 않습니다.\""
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-002",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "두 옵션을 함께 주면 조용히 무시하지 않고 오류로 막습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "조용히 무시하지 않고 오류로 막습니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-003",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "원본은 덮어쓰지 않습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "고친 결과는 파일.fixed.srt로 따로 나가고"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-004",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "종류(-k)를 안 주면 translation으로 진행돼서"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "-k sdh를 붙여 다시 검사해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-005",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "통과가 아닙니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "프로파일에는 있지만 아직 구현하지 않아 검사하지 않은 항목"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-006",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "중간 결과는 기본으로 .work/ 폴더에 단계별로 남습니다"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "처음부터 다시 하실 필요는 없습니다"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-007",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "--ocr-scan을 쓰시면 됩니다... 캡션 목록만 보여 주고 자막에는 넣지 않습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-008",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "먼저 [도움말 → 진단]을 눌러 보세요. 무엇을 찾았고 무엇이 없는지 알려 줍니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "전사 모델 같은 사용자 자료는 %APPDATA%\\자막생성기\\에 있어야 합니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "프로그램 폴더는 다시 빌드하면 지워지므로 모델을 거기 두지 마세요."
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-009",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "밖으로 조회하는 것은 작품 제목과 인물 이름뿐이고"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "대사·대본은 어떤 경우에도 나가지 않습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "U-010",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "tools/ 폴더의 netflix-ko-sdh-check.bat 위에 자막 파일이나 폴더를 끌어다 놓으시면 됩니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-001",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "넷플릭스 한국어 SDH는 성인 프로그램 초당 최대 14자"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "어린이 프로그램 11자입니다"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "의역하지 말고 줄이기·삭제·압축으로 손보세요"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-002",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "T05는 [자동] 항목이라 --fix로 고칠 수 있습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "원본은 그대로 두고 고친 결과가 새 파일로 나갑니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-003",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "S11은 [확인] 항목입니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "화자 표시나 효과음 대괄호를 어디서 닫을지는 문맥을 아는 사람만 정할 수 있어서"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "줄 끝에 기계적으로 붙이면 틀릴 수 있습니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-004",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "한 줄 기준은 16자이고"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "라틴 문자·공백·문장부호는 0.5자로 셉니다"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-005",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "무슨 언어인지 확인해서 ... 적어 주세요."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "[일어로 말한다]처럼 적어 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-006",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "자막 사이는 최소 2프레임입니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "24fps에서 3~11프레임 간격은 2프레임으로 닫고"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없어지지 않았습니다. General Requirements에서 빠졌지만 Subtitle Timing Guidelines로 옮겨졌고"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-007",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "T12 중 24시간제 검사는 아직 구현되지 않아 안 잡힌 것입니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "괜찮은 게 아닙니다."
+     },
+     {
+      "index": 3,
+      "ok": true,
+      "quote": "규정상 24시간제는 군대 맥락이 아니면 쓰지 않으니"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-008",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "효과음 설명을 '소리'나 '들린다'로 끝내지 않도록 합니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "가능하면 의성어로 [똑똑]이나 [똑똑 - 문]처럼 바꿔 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-009",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "T18은 위반이 아니라 권고입니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "아래 줄이 더 긴 피라미드 모양을 선호한다"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q-010",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "자막 하나의 노출 시간은 최대 7초"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "최소는 20프레임(24fps 기준)입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-001",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "이름이 아직 나오지 않은 인물은 [여자] 또는 [남자]로 씁니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "한 장면에 같은 표시가 여럿이면 [여자1]처럼 번호를 붙이고 장면이 바뀌면 다시 셉니다."
+     },
+     {
+      "index": 3,
+      "ok": true,
+      "quote": "한 명뿐이면 1은 붙이지 않습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-002",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "한 자막 안에서 두 문장을 가를 때는 쉼표를 씁니다"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "아닙니다... 줄 끝에는 마침표·쉼표 모두 찍지 않습니다"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-003",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "한 글자짜리 말줄임표(…, U+2026)를 씁니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-004",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "가사 자막은 앞뒤 모두에 음표(♪)를 두고"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "음표와 글자 사이는 한 칸 띄웁니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-005",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "환산하지 않습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "대사 속 금액은 원래 통화 그대로 둡니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-006",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "SDH는 원어에서 번역한 경우에만 넣습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "원음이나 더빙 음성을 받아 적은 SDH라면 번역자 크레디트를 넣지 않습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-007",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "대사가 장면 전환 뒤 반 초 이내에 시작하면 인점을 전환 첫 프레임에 맞춥니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-008",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "존댓말·반말은 맥락, 관계, 시대 등을 보고 정하고"
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "성별이나 나이만으로 정하지 않습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "그렇게 일괄로 정하지 않습니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-009",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "\"숫자를 풀어 쓰든 아라비아 숫자로 쓰든 허용\""
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "\"공간이나 읽기 속도를 보고 판단\""
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-010",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "문장 속 특정 단어가 삐 처리되면 음절 하나당 별표 하나를 씁니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "구나 문장 전체가 삐 처리되면 ****로 씁니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "[음 소거 효과음]으로는 쓰지 않습니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "S-011",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "화면 글자 번역은 큰따옴표(“ ”)로 감쌉니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "대사와 한 자막에 섞지 않습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-001",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "건의 접수했습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "접수번호는 FB-20260917-001입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "반영 여부와 시점은 운영자가 검토한 뒤 정해져서 지금 약속드리기는 어렵습니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-002",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "버그 제보 접수했습니다. 접수번호는 FB-20260917-001입니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "실행한 명령과 -p/-l/-k 옵션, 화면 실행이었다면 [도움말 → 진단] 결과를 알려 주시겠어요?"
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-003",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "검사 오탐 제보로 접수했습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-004",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "새 프로파일 건의로 접수했습니다. 접수번호는 FB-20260917-001입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-005",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "기능 건의로 접수했습니다. 접수번호는 FB-20260917-001입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "반영 여부와 시점은 검토 뒤 정해집니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-006",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "사용법 문서에서는 리포트를 폴더에 파일별로 내보내는 기능을 찾지 못했습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "내보내기 기능은 건의로 접수했습니다. 접수번호는 FB-20260917-001입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-007",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "방송 전 대본은 붙여넣지 말아 주세요."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "재현에는 '16자짜리 줄에 영문 약어가 섞인 경우'처럼 형태만 적어 주시면 됩니다."
+     },
+     {
+      "index": 3,
+      "ok": true,
+      "quote": "오탐 제보는 접수했습니다. 접수번호는 FB-20260917-001입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-008",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "\"--ocr-hardsub는 프레임마다 결과를 남겨서 절전·재부팅으로 끊겨도 이어서 돌도록 되어 있습니다.\""
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "\"버그 제보로 접수했습니다. 접수번호는 FB-20260917-001입니다.\""
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-009",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "기능 건의로 접수했습니다. 접수번호는 FB-20260917-001입니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F-010",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "버그 제보 접수했습니다. 접수번호는 FB-20260917-001입니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "화면 실행인지 명령줄인지, 실행한 명령이나 누른 메뉴를 알려 주시면 확인에 도움이 됩니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-001",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "온라인가나다(https://www.korean.go.kr/front/onlineQna/onlineQnaList.do)나 표준국어대사전(https://stdict.korean.go.kr/)에서 확인해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-002",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "국립국어원 온라인가나다나 표준국어대사전에서 확인해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-003",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "외래어 표기는 국립국어원 한국어 어문 규범(https://www.korean.go.kr/kornorms/main/main.do)의 외래어 표기법이나 표준국어대사전에서 확인해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-004",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "국립국어원 온라인가나다나 표준국어대사전에서 확인해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "띄어쓰기는 이 창구의 근거 문서에 조항이 없어 판정하지 않습니다."
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-005",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "작업료·단가는 이 창구에서 근거를 갖고 답할 수 있는 질문이 아닙니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-006",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "디즈니+ 규정은 이 창구에 공개 근거 문서가 없어 수치를 안내할 수 없습니다."
+     },
+     {
+      "index": 2,
+      "ok": true,
+      "quote": "발주처에서 받은 가이드를 확인해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     },
+     {
+      "index": 2,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-007",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "한국어 음역 지침은 넷플릭스 벤더 포털에 있는 비공개 자료라 이 창구에서 내용을 안내할 수 없습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-008",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "대사 번역은 이 창구에서 하지 않습니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-009",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "국립국어원 온라인가나다나 표준국어대사전에서 확인해 주세요."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  },
+  {
+   "id": "O-010",
+   "pass": true,
+   "missing": [],
+   "violated": [],
+   "unjudged": [],
+   "detail": {
+    "must": [
+     {
+      "index": 1,
+      "ok": true,
+      "quote": "팟플레이어 사용법은 이 창구의 범위가 아닙니다."
+     }
+    ],
+    "forbid": [
+     {
+      "index": 1,
+      "ok": false,
+      "quote": "없음"
+     }
+    ]
+   }
+  }
+ ],
+ "pass": 51,
+ "empty_pass": []
+}

@@ -90,6 +90,7 @@ class SimilarIndex:
 
 if __name__ == "__main__":
     import sys
+    sys.stdout.reconfigure(encoding="utf-8")   # Windows 기본 cp949 콘솔에서 죽지 않게
     items = load_faq()
     passed, failed = verify_faq(items)
     per_route = Counter(it["route"] for it in items)

@@ -22,7 +22,7 @@ from faq import SimilarIndex, load_faq
 ROUTES = ["USAGE", "QC_EXPLAIN", "STYLE_RULE", "FEEDBACK", "OUT_OF_SCOPE"]
 ROUTE_ICON = {"USAGE": "🛠️", "QC_EXPLAIN": "🔎", "STYLE_RULE": "📏", "FEEDBACK": "📮", "OUT_OF_SCOPE": "🧭"}
 ROUTE_DESC = {
-    "USAGE": "생성기 실행 방법, 옵션, 리포트 읽는 법, 결과 파일",
+    "USAGE": "데스크톱 앱·Subtitle Edit 플러그인 쓰는 법, 검사 결과 보는 법, 저장·결과 파일",
     "QC_EXPLAIN": "검사 리포트에 뜬 특정 경고(예: 읽기 속도 초과)의 뜻과 고치는 법",
     "STYLE_RULE": "넷플릭스 공개 자막 규정 — 글자 수, 읽기 속도, 문장부호, SDH 표기, 타이밍 등",
     "FEEDBACK": "기능 건의, 버그·오탐 제보. 접수번호를 드립니다",
@@ -105,7 +105,7 @@ def faq_view(route):
     st.title(f"{ROUTE_ICON[route]} {ROUTE_NAMES[route]}")
     st.caption(ROUTE_DESC[route])
     items = [i for i in faq_items() if i["route"] == route]
-    query = st.text_input("이 카테고리에서 찾기", placeholder="낱말로 거르기 (예: 읽기 속도, --fix, 접수번호)")
+    query = st.text_input("이 카테고리에서 찾기", placeholder="낱말로 거르기 (예: 읽기 속도, 자막 저장, 진단)")
     if query:
         words = query.split()
         items = [i for i in items if all(w in i["q"] + i["a"] for w in words)]
@@ -181,7 +181,7 @@ def details(t):
             st.write("되묻기라 검증하지 않았습니다.")
         else:
             if check["ok"]:
-                st.success("답변 속 수치·옵션 이름·조각 인용·주소·접수번호가 모두 근거에서 확인됐습니다.")
+                st.success("답변 속 수치·조각 인용·주소·접수번호가 모두 근거에서 확인됐고, 명령어·규칙 번호가 없습니다.")
             else:
                 st.error("근거에서 확인되지 않은 내용이 있습니다.")
                 for v in check["violations"]:
@@ -239,7 +239,7 @@ def ask_view():
         selected = st.selectbox("카테고리 (필수)", ROUTES, index=ROUTES.index(default) if default else None,
                                 format_func=lambda r: f"{ROUTE_ICON[r]} {ROUTE_NAMES[r]} — {ROUTE_DESC[r]}",
                                 placeholder="질문에 맞는 카테고리를 고르세요")
-        question = st.text_area("질문", placeholder="예: --lock-timecodes를 켜고 번역할 때 읽기 속도 초과가 뜨면 어떻게 해요?")
+        question = st.text_area("질문", placeholder="예: 받은 TC에 번역만 할 때 읽기 속도 초과가 뜨면 어떻게 해요?")
         submitted = st.form_submit_button("보내기", type="primary")
     if submitted:
         if not selected:

@@ -13,7 +13,7 @@ from pydantic import BaseModel, Field
 from config import CONF_THRESHOLD, MODEL
 from prompts import ROUTE_GUIDE
 
-CLARIFY_MESSAGE = ("문의 내용을 조금 더 구체적으로 알려 주시겠어요? 예를 들어 사용하신 명령이나 옵션, "
+CLARIFY_MESSAGE = ("문의 내용을 조금 더 구체적으로 알려 주시겠어요? 예를 들어 누르신 메뉴나 단추, "
                    "리포트에 뜬 경고 내용(예: 읽기 속도 초과), 번역 자막인지 SDH인지를 적어 주시면 정확히 안내해 드리겠습니다.")
 
 

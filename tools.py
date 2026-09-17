@@ -75,7 +75,7 @@ def _rank_merge(hits, query, k=SEARCH_TOP_K):
 
 
 def search_usage(query: str) -> dict:
-    """자막 생성기 사용법 문서에서 질문과 관련된 조각을 찾는다. 옵션·실행 방법·리포트 형식·결과 파일 질문에 쓴다."""
+    """자막 생성기 사용법 문서에서 질문과 관련된 조각을 찾는다. 앱·플러그인의 메뉴·단추, 검사 결과 보는 법, 저장·결과 파일, 설치·실행 문제 질문에 쓴다."""
     return {"query": query, "chunks": _search("10_usage.md", query)}
 
 

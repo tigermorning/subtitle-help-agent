@@ -20,7 +20,6 @@
 
 - 국립국어원 누리집: https://www.korean.go.kr/
 - 온라인가나다(어문 규범 질문 게시판): https://www.korean.go.kr/front/onlineQna/onlineQnaList.do
-  - 질문을 직접 올리면 국립국어원이 답한다
 - 한국어 어문 규범(한글 맞춤법·표준어 규정·외래어 표기법·로마자 표기법 원문): https://www.korean.go.kr/kornorms/main/main.do
 - 표준국어대사전: https://stdict.korean.go.kr/
 - 우리말샘(개방형 사전): https://opendict.korean.go.kr/

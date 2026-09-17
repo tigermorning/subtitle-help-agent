@@ -1,0 +1,19 @@
+
+① 분류  n=120
+  정확도  0.992
+  macro F1 0.992
+  혼동 행렬 (행=정답, 열=예측)
+                USAGE QC_EXP STYLE_ FEEDBA OUT_OF
+  USAGE            24      0      0      0      0
+  QC_EXPLAIN        0     23      0      1      0
+  STYLE_RULE        0      0     24      0      0
+  FEEDBACK          0      0      0     24      0
+  OUT_OF_SCOPE      0      0      0      0     24
+
+  오분류
+  400041 정답 QC_EXPLAIN → FEEDBACK (conf 0.98) 대사에 '5마일'이라고 번역했는데 non_metric_unit이 안 잡혔어요. 킬로미터로 안 바꿔도 되는 거예요?
+        이유: 특정 검사인 non_metric_unit이 잡혀야 할 항목을 탐지하지 못했다는 검사 누락·오탐 제보에 해당합니다.
+
+  되묻기로 빠짐 0건
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\08-router120.json

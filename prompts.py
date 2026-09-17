@@ -13,9 +13,17 @@ from config import DATA
 
 
 def _fewshot_lines():
+    """예시 = goldenset fewshot(11건) + routing_answers fewshot(30건, 카테고리당 6건). 카테고리 순으로 묶는다."""
+    import csv
     items = json.loads((DATA / "goldenset.json").read_text(encoding="utf-8"))["items"]
-    return "\n".join(f'  "{i["question"]}" -> {i["route"]}'
-                     for i in items if i["split"] == "fewshot")
+    pairs = [(i["route"], i["question"]) for i in items if i["split"] == "fewshot"]
+    inq = {r["qa_id"]: r["question"] for r in csv.DictReader(open(DATA / "inquiries.csv", encoding="utf-8-sig"))}
+    pairs += [(a["route"], inq[a["qa_id"]])
+              for a in csv.DictReader(open(DATA / "routing_answers.csv", encoding="utf-8-sig"))
+              if a["split"] == "fewshot"]
+    order = ["USAGE", "QC_EXPLAIN", "STYLE_RULE", "FEEDBACK", "OUT_OF_SCOPE"]
+    pairs.sort(key=lambda p: order.index(p[0]))
+    return "\n".join(f'  "{q}" -> {r}' for r, q in pairs)
 
 
 ROUTE_GUIDE = f"""\

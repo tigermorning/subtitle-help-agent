@@ -11,13 +11,13 @@ import re
 
 from config import DOCS
 
-HEADING = re.compile(r"^## \[([A-Z]+-[A-Z0-9.]+)\] (.+)$", re.M)
+HEADING = re.compile(r"^## \[([A-Z]+(?:-[A-Z0-9.]+)+)\] (.+)$", re.M)
 
 # 카테고리 → 조각을 가진 문서. docs/MAPPING.md 2절
 ROUTE_DOCS = {
     "USAGE": ["10_usage.md"],
     "QC_EXPLAIN": ["20_qc_checks.md"],
-    "STYLE_RULE": ["30_style_netflix.md"],
+    "STYLE_RULE": ["30_style_netflix.md", "31_netflix_related.md"],
     "FEEDBACK": ["40_feedback.md"],
     "OUT_OF_SCOPE": ["50_referral_nikl.md"],
 }

@@ -16,6 +16,7 @@ from typing import Literal
 
 from config import FEEDBACK_DIR, SEARCH_TOP_K
 from context import CHUNKS, chunks_in
+from originals import originals_for
 
 REF_ID = re.compile(r"`([A-Z]{1,2}-(?:I{1,2}\.\d+|[A-Z]?\d+))`")
 
@@ -55,8 +56,22 @@ def _search(doc_name, query, k=SEARCH_TOP_K):
 
 
 def _pack(cid):
+    """조각 하나. 로컬에 원문이 있으면 해당 절 발췌를 original 로 함께 싣는다."""
     c = CHUNKS[cid]
-    return {"id": cid, "title": c["title"], "text": c["text"]}
+    packed = {"id": cid, "title": c["title"], "text": c["text"]}
+    orig = originals_for(c)
+    if orig:
+        packed["original"] = orig
+    return packed
+
+
+def _rank_merge(hits, query, k=SEARCH_TOP_K):
+    """여러 문서에서 찾은 조각을 같은 점수 기준으로 다시 골라 k개만 남긴다."""
+    q = set(_grams(query))
+    def score(h):
+        tf = Counter(_grams(h["title"] * 2 + " " + h["text"]))
+        return sum(1 + math.log(tf[g]) for g in q if g in tf) / (1 + math.log(1 + len(h["text"]) / 400))
+    return sorted(hits, key=score, reverse=True)[:k]
 
 
 def search_usage(query: str) -> dict:
@@ -65,8 +80,10 @@ def search_usage(query: str) -> dict:
 
 
 def search_style_rule(query: str) -> dict:
-    """넷플릭스 공개 자막 스타일 가이드 요약(한국어 번역·SDH·공통·타이밍)에서 관련 조항을 찾는다."""
-    return {"query": query, "chunks": _search("30_style_netflix.md", query)}
+    """넷플릭스 공개 자막 문서 요약(한국어 번역·SDH·공통·타이밍 가이드, FAQ, 템플릿, 부가·마케팅 영상, 현지화 모범 사례)에서 관련 조항을 찾는다.
+    로컬에 원문이 있으면 조각마다 원문 발췌(original)가 함께 온다."""
+    hits = _search("30_style_netflix.md", query) + _search("31_netflix_related.md", query)
+    return {"query": query, "chunks": _rank_merge(hits, query)}
 
 
 def get_check_info(rule: str) -> dict:

@@ -26,11 +26,12 @@
 |---|---|---|---|
 | `USAGE` | `search_usage` | `U-01`~`U-16` | `10_usage.md` |
 | `QC_EXPLAIN` | `get_check_info` | `Q-00`, `Q-C01`~`Q-S13` + 각 항목이 인용한 조항 | `20_qc_checks.md` (+ `30_style_netflix.md` 해당 조항) |
-| `STYLE_RULE` | `search_style_rule` | `KO-I.0`~`KO-II.10`, `GR-1`~`GR-13`, `TM-0`~`TM-7` | `30_style_netflix.md` |
+| `STYLE_RULE` | `search_style_rule` | `KO-I.0`~`KO-II.10`, `GR-1`~`GR-13`, `TM-0`~`TM-7`, `NR-*` 19개 | `30_style_netflix.md`, `31_netflix_related.md` |
 | `FEEDBACK` | `submit_feedback` | `F-01`~`F-05` | `40_feedback.md` |
 | `OUT_OF_SCOPE` (어문 규범) | `refer_to_nikl` | `R-01`~`R-03` | `50_referral_nikl.md` |
 | `OUT_OF_SCOPE` (그 밖) | 없음 | `R-04`, `R-05` | `50_referral_nikl.md` |
 
+- 원문 발췌: `KO-`·`GR-`·`TM-`·`NR-` 조각은 로컬에 원문(`sources/raw/`)이 있으면 도구가 해당 절 원문을 `original`로 함께 돌려준다(`originals.py`). 원문이 없으면 요약만 돌려준다
 - 항상 넣는 조각(모든 카테고리 공통): `F-04`(비공개 자료 붙여넣기 금지), `R-04`·`R-05`(범위 밖 기준)
   - 모두몰 `ALWAYS`와 같은 역할. 어느 카테고리로 판정돼도 "대본 붙여넣지 마세요"와 "범위 밖이면 넘긴다"는 알아야 한다
 - `get_check_info`는 검사 항목 조각, 그 항목이 `근거:`로 인용한 조항 조각, 리포트 읽는 법 `Q-00`을 **함께** 돌려준다

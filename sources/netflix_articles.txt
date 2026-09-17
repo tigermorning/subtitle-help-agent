@@ -1,0 +1,23 @@
+# 넷플릭스 파트너헬프 공개 글 — 근거 문서 원문. 줄마다 글 번호와 메모
+216001127 Korean Timed Text Style Guide
+215758617 Timed Text Style Guide: General Requirements
+360051554394 Timed Text Style Guide: Subtitle Timing Guidelines
+47550553159187 TTSG Updates - December 2025
+219375728 Timed Text Style Guide: Subtitle Templates
+115000239632 Timed Text Style Guide: Product Supplemental & Marketing Assets
+217558918 Understanding Forced Narrative Subtitles
+215581437 Netflix Accepted Glyph List
+360000586227 Episode & Main Title Translation in Subs and Dubs
+360000119507 Localization Best Practices - Features & Series
+360000120207 Localization Best Practices - Nonfiction Content
+5110291703443 Terminology Tool Overview: Key Names and Phrases (KNP)
+38231879488019 FAQ: Why does Netflix have subtitle timing guidelines?
+115001349591 FAQ: reading speed threshold for dialogue or forced narrative heavy content
+215274938 FAQ: maximum number of characters per line
+38232067474835 FAQ: Do all subtitles need to adhere to the Netflix timed text style guides?
+224198488 FAQ: What is a Forced Narrative subtitle?
+38231759314835 FAQ: subtitle template vs. pivot language subtitle template
+38231659498387 FAQ: difference between subtitles, SDH and CC
+115000303132 FAQ: pre-existing subtitle file, unable to obtain translator credit
+115000783548 FAQ: Do I need to translate episode titles for Korean timed text assets?
+115000980747 FAQ: Korea Media Rating Board (KMRB)

@@ -15,7 +15,8 @@ import re
 
 from context import CHUNKS
 
-CITE = re.compile(r"\[([A-Z]{1,2}-[A-Z0-9.]+(?:\s*,\s*[A-Z]{1,2}-[A-Z0-9.]+)*)\]")
+ID = r"[A-Z]{1,3}(?:-[A-Z0-9.]+)+"
+CITE = re.compile(rf"\[({ID}(?:\s*,\s*{ID})*)\]")
 RECEIPT = re.compile(r"FB-\d{8}-\d{3}")
 FLAG = re.compile(r"(?<![\w-])--[a-z][a-z0-9-]*")
 URL = re.compile(r"https?://[^\s)\]>`'\"]+")
@@ -28,7 +29,7 @@ def _strip_meta(text):
     text = RECEIPT.sub(" ", text)
     text = URL.sub(" ", text)
     text = FLAG.sub(" ", text)
-    text = re.sub(r"\b[A-Z]{1,2}-?[A-Z]?\d+(?:\.\d+)?\b", " ", text)   # S02, KO-I.13, U-07
+    text = re.sub(r"\b[A-Z]{1,3}(?:-[A-Z]+)*-?[A-Z]?\d+(?:\.\d+)?\b", " ", text)   # S02, KO-I.13, NR-TPL-3
     text = re.sub(r"U\+[0-9A-F]{4}", " ", text)
     return text
 
@@ -39,7 +40,10 @@ def _numbers(text):
 
 def evidence_text(result, question):
     ids = set(result.get("chunks", {})) | set(result.get("prompt_chunks", []))
-    return "\n".join([question] + [CHUNKS[i]["text"] for i in ids if i in CHUNKS]), ids
+    texts = [question] + [CHUNKS[i]["text"] for i in ids if i in CHUNKS]
+    for c in result.get("chunks", {}).values():          # 원문 발췌도 근거다
+        texts += [o["text"] + " " + o.get("url", "") for o in c.get("original", [])]
+    return "\n".join(texts), ids
 
 
 def guardrail(question, result):

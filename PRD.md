@@ -57,12 +57,14 @@
 | 넷플릭스 한국어 Timed Text Style Guide | partnerhelp.netflixstudios.com (공개 웹) | 조항 요약 + 원문 링크 |
 | 넷플릭스 Timed Text Style Guide — General Requirements | 같음 | 같음 |
 | 넷플릭스 Timed Text Style Guide — Subtitle Timing Guidelines | 같음 | 같음 |
+| 넷플릭스 관련 공개 문서 19건 — FAQ, 자막 템플릿, 부가·마케팅 영상, 현지화 모범 사례 | 같음 (2026-09-17 추가) | 같음 |
 
 - **넣지 않는 것**
   - `subtitle-tc-rules` 비공개 저장소 내용
   - 작업자 실무 자료
   - 디즈니+·쿠팡플레이 규정(비공개 자료)
-- 넷플릭스 가이드는 한국어 요약 + 원문 링크만 싣는다. 원문 사본은 `sources/raw/`에 두고 저장소에서 뺀다
+- 넷플릭스 문서는 한국어 요약 + 원문 링크만 싣는다. 원문 사본은 `sources/fetch_netflix.py`로 받아 `sources/raw/`에 두고 저장소에서 뺀다
+- 원문은 로컬에서 **근거로도 쓴다** — 도구가 요약 조각과 함께 원문 발췌를 돌려준다(2026-09-17 사용자 결정: 크롤링 허용, 원문은 저장소에 올리지 않음)
 - 문서별 출처·개정일: `docs/SOURCES.md`
 
 ## 6. 평가셋

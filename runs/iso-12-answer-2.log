@@ -1,0 +1,27 @@
+
+① 분류  n=46
+  정확도  0.957
+  macro F1 0.955
+  혼동 행렬 (행=정답, 열=예측)
+                USAGE QC_EXP STYLE_ FEEDBA OUT_OF
+  USAGE             7      0      0      1      0
+  QC_EXPLAIN        0      8      0      0      0
+  STYLE_RULE        0      0     14      0      0
+  FEEDBACK          0      0      0      8      0
+  OUT_OF_SCOPE      0      0      1      0      7
+
+② 도구 호출 적절성  45/46 = 97.8%
+③ 답변 적절성       45/46 = 97.8%
+   둘 다 통과        45/46 = 97.8%
+   forbid 위반        0건
+   행동 분포          {'ANSWER': 46}
+   검증 재생성        0건
+
+실패 목록
+
+  U-004 [USAGE→FEEDBACK 0.94 ANSWER] SDH 파일 검사했는데 효과음 관련 지적이 하나도 안 나와요. -p netflix -l ko만 줬어요
+    도구: 기대 ['search_usage'] / 실제 ['submit_feedback']
+    must 누락: ['-k를 안 주면 translation으로 진행된다', 'SDH 파일은 -k sdh를 줘야 효과음 규칙이 적용된다']
+    답변: 제보를 접수했습니다. 접수번호는 **FB-20260917-010**입니다.  재현을 위해 실행 방식(화면/명령줄), 실행한 명령 또는 메뉴, 오류 없이 검사 완료됐는지와 화면 실행 시 [도움말 → 진단] 결과를 한 번 알려 주세요. [F-02]
+
+기록: C:\Users\user\AppData\Local\Temp\claude\C--Users-user-Documents-subtitle-tc-generator\9116d3e8-eaf6-4a52-929c-af6fadd4633e\scratchpad\exp12\runs\iso-12-answer-2.json

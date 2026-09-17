@@ -1,0 +1,25 @@
+
+① 분류  n=120
+  정확도  0.967
+  macro F1 0.967
+  혼동 행렬 (행=정답, 열=예측)
+                USAGE QC_EXP STYLE_ FEEDBA OUT_OF
+  USAGE            22      0      0      2      0
+  QC_EXPLAIN        0     22      0      2      0
+  STYLE_RULE        0      0     24      0      0
+  FEEDBACK          0      0      0     24      0
+  OUT_OF_SCOPE      0      0      0      0     24
+
+  오분류
+  400002 정답 USAGE → FEEDBACK (conf 0.74) 3차에서 글자 수 다시 맞추느라 시간이 두 배로 드는데, 왜 1차 번역 때 글자 수를 안 맞추게 해 놨어요?
+        이유: 1차 번역 단계에서 글자 수를 맞추지 않도록 한 생성기 동작에 대한 불만·개선 요구로 해석됩니다.
+  400024 정답 USAGE → FEEDBACK (conf 0.93) 작업할 때마다 .work 폴더가 잔뜩 생겨서 지저분해 죽겠어요. 이거 안 남기게 못 해요?
+        이유: .work 폴더가 작업 후 남지 않도록 동작을 바꾸거나 정리 기능을 요청하는 문의입니다.
+  400041 정답 QC_EXPLAIN → FEEDBACK (conf 0.98) 대사에 '5마일'이라고 번역했는데 non_metric_unit이 안 잡혔어요. 킬로미터로 안 바꿔도 되는 거예요?
+        이유: 특정 검사인 non_metric_unit이 규정 위반을 잡지 못한 오탐·미탐 제보이므로 FEEDBACK입니다.
+  400059 정답 QC_EXPLAIN → FEEDBACK (conf 0.96) T01 글자 수 초과 수백 개인데 줄만 나누면 되는 걸 왜 --fix가 안 해 줘요? 이걸 다 손으로 하라고요?
+        이유: T01 자체의 의미를 묻는 것이 아니라, --fix가 해당 위반을 자동 처리하지 않는 동작에 대한 불만·기능 개선 요청이다.
+
+  되묻기로 빠짐 0건
+
+기록: C:\Users\user\AppData\Local\Temp\claude\C--Users-user-Documents-subtitle-tc-generator\9116d3e8-eaf6-4a52-929c-af6fadd4633e\scratchpad\exp11\runs\iso-11-router-1.json

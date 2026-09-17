@@ -1,0 +1,22 @@
+여러 턴 대화 n=12
+  도구 집합 일치 10/12
+  턴 답변 통과   22/24
+  대화 전체 통과 8/12
+
+실패
+
+  M-03 버그 제보 → 재현 정보 제공 → 접수
+    도구: 기대 ['submit_feedback'] / 실제 ['search_usage', 'submit_feedback']
+
+  M-06 앞 턴이 없는 지시어 → 되묻기 → 특정
+    1턴 [USAGE ANSWER ['search_usage']] must 누락 ['어떤 옵션(무엇을 하려는 것)인지 되묻는다'] / forbid 위반 ['특정 옵션을 추측해 안내한다']
+      답변: 자동 교정 옵션은 `--fix`입니다.  ```bash python -m checker 파일.srt -l ko -k sdh --fix ```  결과는 `파일.fixed.srt`로 저장되며, 원본은 덮어쓰지 않습니다. 출력 파일명은 `-o 출력.srt`로 지정할 수 있습니다. [U-06]
+
+  M-08 대본 붙여넣기 문의 → 형태만 적어 제보
+    도구: 기대 ['submit_feedback'] / 실제 ['get_check_info', 'search_usage', 'submit_feedback']
+
+  M-10 다른 발주처 규정(범위 밖) → 넷플릭스 규정
+    2턴 [STYLE_RULE ANSWER ['search_style_rule']] must 누락 ['넷플릭스 한국어 SDH 성인 프로그램은 초당 최대 14자', '어린이 프로그램은 초당 최대 11자'] / forbid 위반 []
+      답변: 넷플릭스 한국어 SDH의 읽기 속도 기준 수치는 조회 결과에서 찾지 못했습니다. 다만 읽기 속도 문제가 있을 때는 축소·삭제·압축을 우선하고 의역하지 않도록 안내합니다. [KO-II.1]
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\07-multiturn-2nd.json

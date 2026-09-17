@@ -1,0 +1,18 @@
+여러 턴 대화 n=12
+  도구 집합 일치 10/12
+  턴 답변 통과   23/24
+  대화 전체 통과 9/12
+
+실패
+
+  M-03 버그 제보 → 재현 정보 제공 → 접수
+    도구: 기대 ['submit_feedback'] / 실제 ['search_usage', 'submit_feedback']
+
+  M-07 T01 설명 → 오탐으로 보고 제보
+    1턴 [QC_EXPLAIN ANSWER ['get_check_info']] must 누락 ['한 줄 기준은 16자다'] / forbid 위반 []
+      답변: T01은 `[확인]` 검사입니다. 한글만 세는 것이 아니라 라틴 문자·공백·문장부호를 각각 0.5자로 계산합니다. 기울임 태그 자체를 글자 수에 포함하는지는 제공된 근거에서 확인되지 않습니다.  표시된 줄의 공백·문장부호·라틴 문자를 포함해 다시 계산해 보시고, 필요하면 문장을 줄이거나 최대 2줄로 나누세요. [Q-T01, KO-I.2]
+
+  M-08 대본 붙여넣기 문의 → 형태만 적어 제보
+    도구: 기대 ['submit_feedback'] / 실제 ['get_check_info', 'submit_feedback']
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\07-multiturn.json

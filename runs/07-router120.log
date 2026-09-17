@@ -1,0 +1,25 @@
+
+① 분류  n=120
+  정확도  0.967
+  macro F1 0.967
+  혼동 행렬 (행=정답, 열=예측)
+                USAGE QC_EXP STYLE_ FEEDBA OUT_OF
+  USAGE            21      0      0      3      0
+  QC_EXPLAIN        0     23      0      1      0
+  STYLE_RULE        0      0     24      0      0
+  FEEDBACK          0      0      0     24      0
+  OUT_OF_SCOPE      0      0      0      0     24
+
+  오분류
+  400002 정답 USAGE → FEEDBACK (conf 0.98) 3차에서 글자 수 다시 맞추느라 시간이 두 배로 드는데, 왜 1차 번역 때 글자 수를 안 맞추게 해 놨어요?
+        이유: 1차 번역 단계에서 글자 수를 맞추지 않도록 한 기능·워크플로 설계에 대한 불만 및 변경 요구로 볼 수 있습니다.
+  400024 정답 USAGE → FEEDBACK (conf 0.98) 작업할 때마다 .work 폴더가 잔뜩 생겨서 지저분해 죽겠어요. 이거 안 남기게 못 해요?
+        이유: 작업 후 생성되는 .work 폴더를 남기지 않도록 기능을 바꿔 달라는 요청이다.
+  400030 정답 USAGE → FEEDBACK (conf 0.93) 화면 글자랑 대사 자막 겹치는 거 잡아줄 줄 알았는데 위치 검사가 아예 안 돌았어요. 기본값도 없다니 뭘 줘야 돼요?
+        이유: 화면 글자와 대사 자막의 겹침을 검사할 기능이 실행되지 않았고 기본값도 없다는 동작 이상을 제보하고 있다.
+  400041 정답 QC_EXPLAIN → FEEDBACK (conf 0.98) 대사에 '5마일'이라고 번역했는데 non_metric_unit이 안 잡혔어요. 킬로미터로 안 바꿔도 되는 거예요?
+        이유: `non_metric_unit` 검사가 ‘5마일’을 잡지 못한 오탐·누락 제보이므로 FEEDBACK입니다.
+
+  되묻기로 빠짐 0건
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\07-router120.json

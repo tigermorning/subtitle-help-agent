@@ -1,0 +1,24 @@
+어려운 문항 n=72  통과 60/72
+  유형       통과   되묻기가 정답→되물음   처리가 정답→맞게 처리
+  경계모호      10/13          0/2                10/11
+  극단단답      10/12          6/7                 4/5
+  다중의도       7/12          0/0                 7/12
+  분류체계밖     11/11          0/0                11/11
+  텍스트손상     12/12          0/0                12/12
+  문맥의존      10/12         10/10                0/2
+
+실패
+  500007 [경계모호] 기대 HANDLE OUT_OF_SCOPE/USAGE → HANDLE QC_EXPLAIN (0.98) 한국어 교정에서 K02 떴는데 그 표기가 맞춤법상 맞는 거예요?
+  500008 [경계모호] 기대 CLARIFY USAGE/FEEDBACK → HANDLE FEEDBACK (0.96) 만든 자막 타임코드가 영상이랑 조금씩 밀려요.
+  500011 [경계모호] 기대 CLARIFY USAGE/STYLE_RULE → HANDLE USAGE (0.98) SRT 말고 TTML로 납품하라는데 어떻게 맞춰요?
+  500017 [극단단답] 기대 CLARIFY FEEDBACK/USAGE → HANDLE FEEDBACK (0.55) 오류
+  500018 [극단단답] 기대 HANDLE USAGE/- → CLARIFY USAGE (0.42) --fix?
+  500025 [다중의도] 기대 HANDLE USAGE/STYLE_RULE → CLARIFY USAGE (0.48) SDH 검사 명령은 어떻게 쳐요? 그리고 효과음은 대괄호로 쓰는 거 맞죠?
+  500027 [다중의도] 기대 HANDLE STYLE_RULE/OUT_OF_SCOPE → CLARIFY STYLE_RULE (0.46) 줄 끝에 쉼표 찍어도 되는지랑, '어떡해'랑 '어떻해' 중 뭐가 맞는지 알려 주세요
+  500032 [다중의도] 기대 HANDLE STYLE_RULE/USAGE → CLARIFY USAGE (0.45) SDH 화자 표시는 어떤 형식으로 써요? 그리고 그걸 검사하려면 -k sdh만 주면 되나요?
+  500033 [다중의도] 기대 HANDLE OUT_OF_SCOPE/STYLE_RULE → CLARIFY OUT_OF_SCOPE (0.46) 번역료 협상 팁 있으면 알려 주시고요, 넷플릭스 번역자 크레디트 넣는 규정도 궁금해요
+  500036 [다중의도] 기대 HANDLE USAGE/STYLE_RULE → CLARIFY USAGE (0.42) --genre documentary로 돌리는 법이랑, 넷플릭스는 다큐 인터뷰 자막을 어떻게 처리하라고 하는지 알려 주세요
+  500069 [문맥의존] 기대 HANDLE OUT_OF_SCOPE/- → HANDLE USAGE (0.85) 아까 그 파일로 다시 한번 돌려 봐 주세요
+  500070 [문맥의존] 기대 HANDLE FEEDBACK/USAGE → CLARIFY FEEDBACK (0.42) 그 기능은 언제쯤 추가돼요?
+
+기록: C:\Users\user\Documents\subtitle-help-agent\runs\07-hard.json

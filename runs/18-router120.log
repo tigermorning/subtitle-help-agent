@@ -1,0 +1,23 @@
+
+① 분류  n=120
+  정확도  0.975
+  macro F1 0.975
+  혼동 행렬 (행=정답, 열=예측)
+                USAGE QC_EXP STYLE_ FEEDBA OUT_OF
+  USAGE            24      0      0      0      0
+  QC_EXPLAIN        0     24      0      0      0
+  STYLE_RULE        0      1     23      0      0
+  FEEDBACK          1      0      0     23      0
+  OUT_OF_SCOPE      1      0      0      0     23
+
+  오분류
+  400084 정답 STYLE_RULE → QC_EXPLAIN (conf 0.98) 대사 많은 토크쇼라 읽기 속도가 계속 넘치는데, 아웃점을 얼마까지 늘려도 되나요?
+        이유: 읽기 속도 초과라는 검사 결과를 바탕으로 아웃점을 얼마나 조정할 수 있는지와 초과를 어떻게 해결할지 알고 싶어 하므로 QC_EXPLAIN이다.
+  400105 정답 FEEDBACK → USAGE (conf 0.93) exe를 '내 작업 폴더' 안에 두면 실행하자마자 꺼져요. 경로에 한글이나 공백 있으면 안 되는 건가요? 진짜 답답하네요
+        이유: 작업 폴더 경로에 한글·공백이 있을 때 실행이 종료되는 증상의 원인과 실행 방법을 알고 싶은 문의이므로 USAGE입니다.
+  400146 정답 OUT_OF_SCOPE → USAGE (conf 0.99) Subtitle Edit에서 음성 파형이 안 보이는데 어느 메뉴에서 켜요?
+        이유: Subtitle Edit에서 음성 파형을 표시하는 메뉴와 켜는 방법을 알고 싶어 하는 문의이므로 USAGE입니다.
+
+  되묻기로 빠짐 0건
+
+기록: C:\Users\user\Documents\subtitle-tc-generator-project\subtitle-help-agent\runs\18-router120.json

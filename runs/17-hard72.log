@@ -1,0 +1,29 @@
+어려운 문항 n=72  통과 55/72
+  유형       통과   되묻기가 정답→되물음   처리가 정답→맞게 처리
+  경계모호      10/13          0/2                10/11
+  극단단답       9/12          7/7                 2/5
+  다중의도       5/12          0/0                 5/12
+  분류체계밖     11/11          0/0                11/11
+  텍스트손상     12/12          0/0                12/12
+  문맥의존       8/12          8/10                0/2
+
+실패
+  500007 [경계모호] 기대 HANDLE OUT_OF_SCOPE/USAGE → HANDLE QC_EXPLAIN (0.70) 한국어 교정에서 확인 필요 표시가 떴는데 그 표기가 맞춤법상 맞는 거예요?
+  500008 [경계모호] 기대 CLARIFY USAGE/FEEDBACK → HANDLE FEEDBACK (0.62) 만든 자막 타임코드가 영상이랑 조금씩 밀려요.
+  500011 [경계모호] 기대 CLARIFY USAGE/STYLE_RULE → HANDLE USAGE (0.98) SRT 말고 TTML로 납품하라는데 어떻게 맞춰요?
+  500015 [극단단답] 기대 HANDLE QC_EXPLAIN/STYLE_RULE → CLARIFY QC_EXPLAIN (0.42) SDH 읽기 속도 초과?
+  500018 [극단단답] 기대 HANDLE USAGE/- → CLARIFY USAGE (0.30) 자막 QA?
+  500023 [극단단답] 기대 HANDLE USAGE/- → CLARIFY USAGE (0.45) 타임코드 고정 뭐예요
+  500025 [다중의도] 기대 HANDLE USAGE/STYLE_RULE → CLARIFY USAGE (0.45) SDH 검사는 어떻게 켜요? 그리고 효과음은 대괄호로 쓰는 거 맞죠?
+  500027 [다중의도] 기대 HANDLE STYLE_RULE/OUT_OF_SCOPE → CLARIFY OUT_OF_SCOPE (0.43) 줄 끝에 쉼표 찍어도 되는지랑, '어떡해'랑 '어떻해' 중 뭐가 맞는지 알려 주세요
+  500028 [다중의도] 기대 HANDLE USAGE/OUT_OF_SCOPE → CLARIFY OUT_OF_SCOPE (0.35) 1차 번역 돌리는 법 알려 주시고, 쿠팡플레이 번역 자막 줄당 글자 수 기준도 알려 주세요
+  500030 [다중의도] 기대 HANDLE QC_EXPLAIN/STYLE_RULE → CLARIFY QC_EXPLAIN (0.43) 음표 짝 경고가 무슨 뜻인지 알려 주시고, 번역 자막에서는 노래 가사에 따옴표 쓰는지도 알려 주세요
+  500032 [다중의도] 기대 HANDLE STYLE_RULE/USAGE → CLARIFY USAGE (0.48) SDH 화자 표시는 어떤 형식으로 써요? 그리고 그걸 검사하려면 종류만 sdh로 놓으면 되나요?
+  500033 [다중의도] 기대 HANDLE OUT_OF_SCOPE/STYLE_RULE → CLARIFY OUT_OF_SCOPE (0.46) 번역료 협상 팁 있으면 알려 주시고요, 넷플릭스 번역자 크레디트 넣는 규정도 궁금해요
+  500036 [다중의도] 기대 HANDLE USAGE/STYLE_RULE → CLARIFY USAGE (0.42) 다큐 작업용 기준을 새로 만드는 법이랑, 넷플릭스는 다큐 인터뷰 자막을 어떻게 처리하라고 하는지 알려 주세요
+  500064 [문맥의존] 기대 CLARIFY OUT_OF_SCOPE/- → HANDLE OUT_OF_SCOPE (0.99) 방금 알려 주신 번호 다시 한 번만 말해 주세요
+  500069 [문맥의존] 기대 HANDLE OUT_OF_SCOPE/- → CLARIFY USAGE (0.42) 아까 그 파일로 다시 한번 돌려 봐 주세요
+  500070 [문맥의존] 기대 HANDLE FEEDBACK/USAGE → CLARIFY FEEDBACK (0.35) 그 기능은 언제쯤 추가돼요?
+  500071 [문맥의존] 기대 CLARIFY OUT_OF_SCOPE/- → HANDLE OUT_OF_SCOPE (0.93) 마지막에 말씀하신 사이트 주소가 뭐였죠?
+
+기록: C:\Users\user\Documents\subtitle-tc-generator-project\subtitle-help-agent\runs\17-hard72.json

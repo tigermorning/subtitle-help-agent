@@ -34,7 +34,7 @@ class RouteDecision(BaseModel):
         description="문의를 배정할 카테고리. 5개 값 중 하나만.")
     confidence: float = Field(
         ge=0.0, le=1.0, description="확신도. 두 카테고리 사이에서 갈리거나 무엇을 묻는지 모르면 0.5 미만.")
-    reason: str = Field(description="그 카테고리로 판단한 근거 한 문장.")
+    reason: str = Field(description="질문자가 이 문의로 받고 싶은 결과와, 그래서 이 카테고리인 이유 한 문장. 쓴 단어가 아니라 원하는 결과로 쓴다.")
 
 
 _chain = None

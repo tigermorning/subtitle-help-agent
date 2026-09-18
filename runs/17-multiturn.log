@@ -1,0 +1,13 @@
+여러 턴 대화 n=12
+  도구 집합 일치 11/12
+  턴 답변 통과   23/24
+  대화 전체 통과 11/12
+
+실패
+
+  M-06 앞 턴이 없는 지시어 → 되묻기 → 특정
+    도구: 기대 ['search_usage'] / 실제 []
+    2턴 [USAGE CLARIFY []] must 누락 ['[③ 자막 QA]를 누르면 고칠 수 있는 것이 자막 표에 반영된다', '원본 파일은 덮어쓰지 않고 저장할 때 새 이름으로 나간다'] / forbid 위반 []
+      답변: 문의 내용을 조금 더 구체적으로 알려 주시겠어요? 예를 들어 누르신 메뉴나 단추, 리포트에 뜬 경고 내용(예: 읽기 속도 초과), 번역 자막인지 SDH인지를 적어 주시면 정확히 안내해 드리겠습니다.
+
+기록: C:\Users\user\Documents\subtitle-tc-generator-project\subtitle-help-agent\runs\17-multiturn.json

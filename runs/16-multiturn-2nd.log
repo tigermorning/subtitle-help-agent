@@ -1,0 +1,12 @@
+여러 턴 대화 n=12
+  도구 집합 일치 12/12
+  턴 답변 통과   23/24
+  대화 전체 통과 11/12
+
+실패
+
+  M-10 다른 발주처 규정(범위 밖) → 넷플릭스 규정
+    2턴 [STYLE_RULE ANSWER ['search_style_rule']] must 누락 ['넷플릭스 한국어 SDH 성인 프로그램은 초당 최대 14자', '어린이 프로그램은 초당 최대 11자'] / forbid 위반 []
+      답변: 넷플릭스 한국어 SDH의 읽기 속도 기준 수치는 조회 결과에서 확인하지 못했습니다. 다만 읽기 속도 문제가 있을 때는 원문을 의역하지 말고, 줄이기·삭제·압축 방식으로 조정해야 합니다. [KO-II.1]
+
+기록: C:\Users\user\Documents\subtitle-tc-generator-project\subtitle-help-agent\runs\16-multiturn-2nd.json

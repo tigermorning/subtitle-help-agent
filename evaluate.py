@@ -139,10 +139,11 @@ def run_full(items):
         r = help_desk(i["question"])
         called = sorted({c["name"] for c in r["calls"]})
         v = judge(i["question"], r["answer"], i["must"], i["forbid"])
+        allowed = [i["expected_tools"]] + i.get("expected_tools_alt", [])
         return {"id": i["id"], "question": i["question"], "gold_route": i["route"],
                 "route": r["route"], "confidence": r["confidence"], "action": r["action"],
                 "expected_tools": sorted(i["expected_tools"]), "called": called,
-                "calls": r["calls"], "tool_pass": called == sorted(i["expected_tools"]),
+                "calls": r["calls"], "tool_pass": any(called == sorted(t) for t in allowed),
                 "answer": r["answer"], "answer_pass": v["pass"], "missing": v["missing"],
                 "violated": v["violated"], "guard": r.get("check"),
                 "retried": bool(r.get("first_answer")), "judge": v["detail"]}

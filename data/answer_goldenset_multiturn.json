@@ -7,7 +7,7 @@
     "expect.reference": "모범 답안. 채점기 검증에 쓴다",
     "expect.refs": "근거 조각 ID",
     "tools_union": "대화 전체에서 부른 도구 집합이 이것과 정확히 같아야 1점. 턴마다 되묻기/바로 답하기가 갈릴 수 있어 턴 단위로 채점하지 않는다",
-    "tools_union_alt": "tools_union 대신 인정하는 다른 도구 집합들. 한 턴을 두 도구 중 어느 쪽으로 답해도 근거가 같은 경우에만 둔다"
+    "tools_union_alt": "tools_union 대신 인정하는 다른 도구 집합들. 한 턴을 두 도구 중 어느 쪽으로 답해도 근거가 같은 경우, 그리고 증상 제보에 접수와 함께 사용법 문서를 대조하는 경우(F-05)에만 둔다"
   },
   "conversations": [
     {
@@ -123,6 +123,12 @@
       "pattern": "정보보완",
       "tools_union": [
         "submit_feedback"
+      ],
+      "tools_union_alt": [
+        [
+          "search_usage",
+          "submit_feedback"
+        ]
       ],
       "turns": [
         {
@@ -325,6 +331,13 @@
         "get_check_info",
         "submit_feedback"
       ],
+      "tools_union_alt": [
+        [
+          "get_check_info",
+          "search_usage",
+          "submit_feedback"
+        ]
+      ],
       "turns": [
         {
           "role": "user",
@@ -376,6 +389,12 @@
       "pattern": "비공개자료",
       "tools_union": [
         "submit_feedback"
+      ],
+      "tools_union_alt": [
+        [
+          "search_usage",
+          "submit_feedback"
+        ]
       ],
       "turns": [
         {

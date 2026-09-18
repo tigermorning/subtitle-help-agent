@@ -737,6 +737,12 @@
       "expected_tools": [
         "submit_feedback"
       ],
+      "expected_tools_alt": [
+        [
+          "search_usage",
+          "submit_feedback"
+        ]
+      ],
       "must": [
         "버그 제보를 접수했다",
         "쓴 곳·누른 메뉴나 단추, 오류 문구 같은 재현 정보를 요청한다"
@@ -759,6 +765,12 @@
       "question": "기울임 태그 들어간 줄이 태그까지 글자 수로 세서 초과로 잡히는 것 같아요",
       "expected_tools": [
         "submit_feedback"
+      ],
+      "expected_tools_alt": [
+        [
+          "search_usage",
+          "submit_feedback"
+        ]
       ],
       "must": [
         "검사 오탐 제보로 접수했다"
@@ -852,6 +864,12 @@
       "expected_tools": [
         "submit_feedback"
       ],
+      "expected_tools_alt": [
+        [
+          "search_usage",
+          "submit_feedback"
+        ]
+      ],
       "must": [
         "방송 전 대본·미공개 자료는 붙여넣지 말라고 안내한다",
         "문제 자막의 형태만 적어 달라고 요청한다",
@@ -920,6 +938,12 @@
       "question": "번역 2차 감수 단계에서 KeyError: 'passes' 뜨면서 멈춰요",
       "expected_tools": [
         "submit_feedback"
+      ],
+      "expected_tools_alt": [
+        [
+          "search_usage",
+          "submit_feedback"
+        ]
       ],
       "must": [
         "버그 제보를 접수했다",

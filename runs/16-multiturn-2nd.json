@@ -1,0 +1,478 @@
+{
+ "rows": [
+  {
+   "id": "M-01",
+   "title": "읽기 속도 — 번역/SDH 구분이 필요 → 특정",
+   "tool_pass": true,
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "turns": [
+    {
+     "question": "읽기 속도 기준이 초당 몇 자예요?",
+     "answer": "번역 자막은 성인 프로그램 초당 최대 12자, 어린이 프로그램 초당 최대 9자입니다.  \n한국어 SDH는 성인 최대 14자, 어린이 최대 11자입니다. [KO-I.15, KO-II.3]",
+     "route": "STYLE_RULE",
+     "action": "ANSWER",
+     "calls": [
+      "search_style_rule",
+      "search_style_rule"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "한국 예능 SDH요. 성인 대상이에요.",
+     "answer": "한국 예능 성인 대상 SDH는 초당 최대 14자입니다. [KO-II.3]",
+     "route": "STYLE_RULE",
+     "action": "ANSWER",
+     "calls": [
+      "search_style_rule"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "id": "M-02",
+   "title": "SDH 읽기 속도 초과 설명 → 번역 자막 기준 이어 묻기",
+   "tool_pass": true,
+   "expected_tools": [
+    "get_check_info",
+    "search_style_rule"
+   ],
+   "called": [
+    "get_check_info",
+    "search_style_rule"
+   ],
+   "turns": [
+    {
+     "question": "SDH 검사에서 읽기 속도 초과 경고가 떴어요. 기준이 뭐예요?",
+     "answer": "SDH 읽기 속도 초과는 사람이 확인하는 경고입니다. 성인 프로그램은 초당 최대 14자, 어린이 프로그램은 초당 최대 11자까지입니다. 이를 넘으면 경고가 뜹니다.\n\nSDH는 의역하지 말고, 줄이기·삭제·압축으로 조정해 보세요. [Q-24, KO-II.3]",
+     "route": "QC_EXPLAIN",
+     "action": "ANSWER",
+     "calls": [
+      "get_check_info"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "그럼 같은 작품 번역 자막 만들 때는요?",
+     "answer": "번역 자막은 SDH보다 낮습니다. 성인 프로그램은 초당 최대 12자, 어린이 프로그램은 초당 최대 9자입니다. [KO-I.15]",
+     "route": "STYLE_RULE",
+     "action": "ANSWER",
+     "calls": [
+      "search_style_rule"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "id": "M-03",
+   "title": "버그 제보 → 재현 정보 제공 → 접수",
+   "tool_pass": true,
+   "expected_tools": [
+    "submit_feedback"
+   ],
+   "called": [
+    "search_usage",
+    "submit_feedback"
+   ],
+   "turns": [
+    {
+     "question": "자막 QA 누르면 가끔 프로그램이 그냥 멈춰요.",
+     "answer": "멈춤 현상 제보를 접수했습니다. 접수번호는 **FB-20260918-049**입니다.\n\n문서에서는 이 멈춤 동작 자체에 대한 설명은 확인되지 않습니다. 사용하신 곳(데스크톱 앱/Subtitle Edit 플러그인), 누른 단추, 오류 문구가 있으면 알려 주세요. 데스크톱 앱이면 [도움말 → 진단...]의 `[없음]` 줄도 함께 알려 주세요. [F-02, U-14]",
+     "route": "FEEDBACK",
+     "action": "ANSWER",
+     "calls": [
+      "submit_feedback",
+      "search_usage"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "데스크톱 앱이에요. 넷플릭스 SDH로 놓고 [③ 자막 QA]를 눌렀고 오류 문구 없이 멈춰요.",
+     "answer": "추가 내용으로 버그 제보를 접수했습니다. 접수번호는 **FB-20260918-052**입니다.\n\n[③ 자막 QA] 작업 중에는 아래 `진행 기록` 칸에 진행 내용이 표시됩니다. 멈출 때 마지막으로 보인 내용과 [도움말 → 진단...]에서 `[없음]`으로 뜬 줄을 한 번만 더 알려 주세요. [F-02, U-02]",
+     "route": "FEEDBACK",
+     "action": "ANSWER",
+     "calls": [
+      "submit_feedback",
+      "search_usage"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "id": "M-04",
+   "title": "받은 TC 고정 → 타임코드 수렴과 함께 켜기",
+   "tool_pass": true,
+   "expected_tools": [
+    "search_usage"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "turns": [
+    {
+     "question": "TC 작업 끝난 파일에 번역만 하는데 타임코드 안 건드리게 하는 방법 있어요?",
+     "answer": "네. Subtitle Edit 플러그인에서 **[② 받은 TC에 번역만]**을 선택하고 **`타임코드 고정(받은 TC)`**을 체크하세요. 검사·교정 중에도 받은 타임코드를 옮기지 않습니다.\n\n`타임코드 수렴`을 함께 켜더라도, 고정이 우선합니다. [U-07]",
+     "route": "USAGE",
+     "action": "ANSWER",
+     "calls": [
+      "search_usage"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "그거 켜고 타임코드 수렴도 같이 켜면 어떻게 돼요?",
+     "answer": "둘 다 켜면 **`타임코드 고정(받은 TC)`이 우선**합니다. 따라서 타임코드 수렴은 적용되지 않고, 받은 타임코드는 움직이지 않습니다. [U-07]",
+     "route": "USAGE",
+     "action": "ANSWER",
+     "calls": [
+      "search_usage"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "id": "M-05",
+   "title": "맞춤법(넘기기) → 가이드에 있는 표기(규정)",
+   "tool_pass": true,
+   "expected_tools": [
+    "refer_to_nikl",
+    "search_style_rule"
+   ],
+   "called": [
+    "refer_to_nikl",
+    "search_style_rule"
+   ],
+   "turns": [
+    {
+     "question": "'되요'랑 '돼요' 중에 뭐가 맞아요?",
+     "answer": "맞춤법·문법 판단은 국립국어원 자료로 확인해 주세요. 온라인가나다에 문의하거나 한국어 어문 규범을 참고하실 수 있습니다.  \nhttps://www.korean.go.kr/front/onlineQna/onlineQnaList.do  \nhttps://www.korean.go.kr/kornorms/main/main.do [R-01, R-02]",
+     "route": "OUT_OF_SCOPE",
+     "action": "ANSWER",
+     "calls": [
+      "refer_to_nikl"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "그럼 말줄임표는요? 점 세 개 찍어도 돼요?",
+     "answer": "번역 자막에서는 점 세 개(`...`) 대신 한 글자 말줄임표(`…`)를 씁니다.  \n문장이 연속된 두 자막으로 나뉜 경우에는 말줄임표를 쓰지 않습니다. [KO-I.4]",
+     "route": "STYLE_RULE",
+     "action": "ANSWER",
+     "calls": [
+      "search_style_rule"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "id": "M-06",
+   "title": "앞 턴이 없는 지시어 → 되묻기 → 특정",
+   "tool_pass": true,
+   "expected_tools": [
+    "search_usage"
+   ],
+   "called": [
+    "search_usage"
+   ],
+   "turns": [
+    {
+     "question": "아까 말씀하신 그 기능 다시 알려 주세요.",
+     "answer": "문의 내용을 조금 더 구체적으로 알려 주시겠어요? 예를 들어 누르신 메뉴나 단추, 리포트에 뜬 경고 내용(예: 읽기 속도 초과), 번역 자막인지 SDH인지를 적어 주시면 정확히 안내해 드리겠습니다.",
+     "route": "USAGE",
+     "action": "CLARIFY",
+     "calls": [],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "원본은 그대로 두고 자동으로 고쳐 주는 거요.",
+     "answer": "데스크톱 앱에서는 **[③ 자막 QA]**를 누르면 자동으로 고칠 수 있는 항목을 자막 표에 바로 반영하고, 남은 지적만 `검사 결과`에 보여 줍니다. 되돌리기 단추는 없지만 원본 파일은 바뀌지 않으므로, 결과가 마음에 들지 않으면 원본을 다시 열면 됩니다. 반영한 결과는 **[파일 → 자막 저장]**에서 새 이름으로 저장하세요. [U-06]",
+     "route": "USAGE",
+     "action": "ANSWER",
+     "calls": [
+      "search_usage"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "id": "M-07",
+   "title": "한 줄 글자 수 초과 설명 → 오탐으로 보고 제보",
+   "tool_pass": true,
+   "expected_tools": [
+    "get_check_info",
+    "submit_feedback"
+   ],
+   "called": [
+    "get_check_info",
+    "search_usage",
+    "submit_feedback"
+   ],
+   "turns": [
+    {
+     "question": "한 줄 글자 수 초과가 떴는데 글자는 16자 안 넘어요. 기울임 태그 들어간 줄이에요.",
+     "answer": "기울임 태그 자체가 글자 수에 포함되는지는 이 창구의 근거에서 확인되지 않습니다. 다만 한 줄 16자 기준에서는 라틴 문자·공백·문장부호를 각각 0.5자로 셉니다. 따라서 태그 안의 영문 표기나 공백·문장부호까지 포함해 계산됐는지 확인해 보셔야 합니다.\n\n이 항목은 `[확인]`이라 기계가 자동으로 고치지 않으며, 줄을 나누거나 문구를 줄여 조정합니다. [Q-23, KO-II.2]",
+     "route": "QC_EXPLAIN",
+     "action": "ANSWER",
+     "calls": [
+      "get_check_info"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "태그까지 세는 것 같아요. 오탐으로 제보할게요.",
+     "answer": "오탐 의심으로 접수했습니다. 접수번호는 **FB-20260918-051**입니다.\n\n가능하면 사용한 곳(데스크톱 앱/Subtitle Edit 플러그인), 누른 메뉴나 단추, 고른 `플랫폼`·`종류`, 그리고 표시된 오류 문구를 알려 주세요. 미공개 자막 원문은 붙여넣지 말고, “기울임 태그가 든 16자 이하 줄”처럼 형태만 적어 주세요. [F-02, F-03, F-04]",
+     "route": "FEEDBACK",
+     "action": "ANSWER",
+     "calls": [
+      "submit_feedback",
+      "search_usage"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "id": "M-08",
+   "title": "대본 붙여넣기 문의 → 형태만 적어 제보",
+   "tool_pass": true,
+   "expected_tools": [
+    "submit_feedback"
+   ],
+   "called": [
+    "search_usage",
+    "submit_feedback"
+   ],
+   "turns": [
+    {
+     "question": "오탐 확인하시라고 방송 전 드라마 대본 좀 붙여 드려도 돼요?",
+     "answer": "방송 전 대본이나 미공개 자막 원문은 붙여넣지 말아 주세요. 오탐 확인이 필요하면 원문 대신 문제 상황의 형태만 알려 주세요. 예: “16자짜리 줄에 영문 약어가 섞인 경우”처럼요. [F-04]",
+     "route": "OUT_OF_SCOPE",
+     "action": "ANSWER",
+     "calls": [],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "알겠어요. 16자짜리 줄에 영어 약어가 섞이면 한 줄 글자 수 초과가 잘못 잡혀요.",
+     "answer": "오탐 제보를 접수했습니다. 접수번호는 **FB-20260918-050**입니다.\n\n가능하면 사용한 곳(데스크톱 앱/Subtitle Edit 플러그인), 고른 `플랫폼`·`종류`, 그리고 표시된 오류 문구를 알려 주세요. [F-02, F-03]",
+     "route": "FEEDBACK",
+     "action": "ANSWER",
+     "calls": [
+      "submit_feedback",
+      "search_usage"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "id": "M-09",
+   "title": "예고편 자막 기준 → 번역자 크레디트",
+   "tool_pass": true,
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "turns": [
+    {
+     "question": "예고편 자막도 본편이랑 읽기 속도 기준이 같아요?",
+     "answer": "아니요. 예고편 같은 마케팅 영상은 의미·어조·음성 맞춤을 위해 필요하면 일반 읽기 속도 한도를 넘어도 됩니다. 안전 영역에 전체 문장이 들어가면 읽기 속도가 높아도 줄이지 않으며, 글자가 들어가지 않거나 컷이 너무 짧을 때만 줄입니다. [NR-MKT-1, NR-MKT-2]",
+     "route": "STYLE_RULE",
+     "action": "ANSWER",
+     "calls": [
+      "search_style_rule"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "3분짜리 예고편이면 번역자 크레디트도 넣어요?",
+     "answer": "아니요. 3분짜리 예고편은 5분 미만 마케팅 영상이므로 번역자 크레디트를 넣지 않습니다. [NR-MKT-3]",
+     "route": "STYLE_RULE",
+     "action": "ANSWER",
+     "calls": [
+      "search_style_rule"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "id": "M-10",
+   "title": "다른 발주처 규정(범위 밖) → 넷플릭스 규정",
+   "tool_pass": true,
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "turns": [
+    {
+     "question": "디즈니플러스 SDH 읽기 속도 기준 알려 주세요.",
+     "answer": "디즈니플러스의 SDH 읽기 속도 기준은 이 창구에서 공개 근거를 갖고 안내할 수 없습니다. 해당 발주처의 가이드를 확인해 주세요.",
+     "route": "OUT_OF_SCOPE",
+     "action": "ANSWER",
+     "calls": [],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "그럼 넷플릭스 SDH는요?",
+     "answer": "넷플릭스 한국어 SDH의 읽기 속도 기준 수치는 조회 결과에서 확인하지 못했습니다. 다만 읽기 속도 문제가 있을 때는 원문을 의역하지 말고, 줄이기·삭제·압축 방식으로 조정해야 합니다. [KO-II.1]",
+     "route": "STYLE_RULE",
+     "action": "ANSWER",
+     "calls": [
+      "search_style_rule"
+     ],
+     "pass": false,
+     "missing": [
+      "넷플릭스 한국어 SDH 성인 프로그램은 초당 최대 14자",
+      "어린이 프로그램은 초당 최대 11자"
+     ],
+     "violated": []
+    }
+   ],
+   "pass": false
+  },
+  {
+   "id": "M-11",
+   "title": "SDH 화자 표시 → 이름 모르는 인물",
+   "tool_pass": true,
+   "expected_tools": [
+    "search_style_rule"
+   ],
+   "called": [
+    "search_style_rule"
+   ],
+   "turns": [
+    {
+     "question": "SDH에서 화자 표시는 어떤 괄호 써요?",
+     "answer": "SDH 화자 표시는 대괄호 `[ ]`로 감쌉니다. 예: `[영희]`, `[여자]`, `[영희/속삭임]`입니다. [KO-II.8]",
+     "route": "STYLE_RULE",
+     "action": "ANSWER",
+     "calls": [
+      "search_style_rule"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "아직 이름이 안 나온 사람이면요?",
+     "answer": "이름이 아직 나오지 않았다면 `[여자]` 또는 `[남자]`를 씁니다. 같은 장면에 같은 표시가 여러 명이면 `[여자1]`처럼 번호를 붙이고, 장면이 바뀌면 번호를 다시 셉니다. 한 명뿐이면 `1`은 붙이지 않습니다. [KO-II.8]",
+     "route": "STYLE_RULE",
+     "action": "ANSWER",
+     "calls": [
+      "search_style_rule"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "id": "M-12",
+   "title": "기능 있는지 확인 → 건의 접수",
+   "tool_pass": true,
+   "expected_tools": [
+    "search_usage",
+    "submit_feedback"
+   ],
+   "called": [
+    "search_usage",
+    "submit_feedback"
+   ],
+   "turns": [
+    {
+     "question": "검사 리포트를 파일별로 폴더에 한꺼번에 저장하는 기능 있어요?",
+     "answer": "검사 리포트를 파일별 폴더에 한꺼번에 저장하는 기능은 문서에서 찾지 못했습니다. 원하시면 기능 건의로 접수할 수 있습니다. [U-03, U-06, U-12]",
+     "route": "USAGE",
+     "action": "ANSWER",
+     "calls": [
+      "search_usage"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    },
+    {
+     "question": "네, 만들어 주세요.",
+     "answer": "기능 건의로 접수했습니다. 접수번호는 **FB-20260918-053**입니다. [F-02]",
+     "route": "FEEDBACK",
+     "action": "ANSWER",
+     "calls": [
+      "submit_feedback"
+     ],
+     "pass": true,
+     "missing": [],
+     "violated": []
+    }
+   ],
+   "pass": true
+  }
+ ],
+ "summary": {
+  "n": 12,
+  "pass": 11,
+  "tool_pass": 12
+ }
+}
